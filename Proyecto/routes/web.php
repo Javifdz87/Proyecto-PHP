@@ -18,5 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/todos', function () {
-    return "Hola a todos desde esta ruta";
-});
+    return view('todos.index');});
