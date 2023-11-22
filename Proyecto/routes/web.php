@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/tareas', function () {
-    return view('tareas.tareas');
+    return view('tareas');
 });
 
 Route::get('/index', function () {
-    return view('tareas.index');
+    return view('index');
 });
