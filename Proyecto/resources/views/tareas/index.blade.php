@@ -54,8 +54,11 @@
        <label for="nif" class="required">NIF o CIF: <?php if (!empty($errores['nif'])) { echo '<span class="error">' . $errores['nif'] . '</span>'; } ?></label>
        <input type="text" maxlength="9" name="nif" id="nif">
 
-       <label for="nombre" class="required">Nombre y Apellidos:<?php if (!empty($errores['nombre'])) { echo '<span class="error">' . $errores['nombre'] . '</span>'; } ?></label>
+       <label for="nombre" class="required">Nombre:<?php if (!empty($errores['nombre'])) { echo '<span class="error">' . $errores['nombre'] . '</span>'; } ?></label>
        <input type="text" name="nombre" id="nombre">
+
+       <label for="nombre" class="required">Apellidos:<?php if (!empty($errores['apellidos'])) { echo '<span class="error">' . $errores['apellidos'] . '</span>'; } ?></label>
+       <input type="text" name="apellidos" id="apellidos">
 
        <label for="telefono" class="required">Telefono de contacto:<?php if (!empty($errores['telefono'])) { echo '<span class="error">' . $errores['telefono'] . '</span>'; } ?></label>
        <input type="tel" name="telefono" maxlength="9" id="telefono">
@@ -77,7 +80,7 @@
 
        <label for="opcion" class="required">Provincia:</label>
        <select name="provincia">
-           <?php// include("./provincias.php"); ?>
+           <?php //include("./provincias"); ?>
        </select>
 
        <label for="estado">Estado:</label>
