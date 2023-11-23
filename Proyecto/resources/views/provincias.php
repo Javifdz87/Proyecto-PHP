@@ -1,7 +1,7 @@
 <?php
       try {
         
-        include("conexion");
+        include("../Proyecto-PHP/Proyecto/app/Models/Conexion.php");
         $rs = mysqli_query(
           $enlace,
           "select nombre as provincia

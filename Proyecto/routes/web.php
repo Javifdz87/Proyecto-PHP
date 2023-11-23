@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AddController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tareas', function () {
-    return view('tareas');
-});
+Route::get('/tareas',[AddController::class, 'get'])->name('tarea');
+Route::post('/tareas',[AddController::class, 'post'])->name('tareaPost');
+
 
 Route::get('/index', function () {
     return view('index');

@@ -9,23 +9,22 @@
 
     <style>
         body {
-            background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            margin-top: 50px;
+            width: 100%;
+            margin: 20px 0;
         }
 
         .tabla {
-            margin-top: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px;
             border-radius: 8px;
-            overflow: hidden;
-            
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         table {
@@ -34,37 +33,37 @@
         }
 
         th, td {
-            padding: 12px 15px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #dee2e6;
             white-space: nowrap;
+        }
 
+        .table-header {
+            background-color: #007bff;
+            color: #fff;
         }
 
         th {
-            background-color: #007bff;
-            color: white;
+            font-weight: bold;
         }
 
         tbody tr:hover {
             background-color: #f5f5f5;
         }
 
-        .table-header {
+        .btn {
+            padding: 8px 12px;
             background-color: #007bff;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .table-header td {
+            color: #fff;
             border: none;
-            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
         }
 
-        .operations {
-            text-align: center;
+        .btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -85,17 +84,24 @@
                         <th>NIF</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
+                        <th>Teléfono</th>
                         <th>Descripción</th>
                         <th>Email</th>
+                        <th>Población</th>
+                        <th>Código Postal</th>
+                        <th>Provincia</th>
                         <th>Estado</th>
                         <th>Fecha Creación de Tarea</th>
                         <th>Operario</th>
                         <th>Fecha de Realización</th>
+                        <th>Anotaciones Posteriores</th>
+                        <th>Fichero Resumen de Tareas Realizadas</th>
+                        <th>Fotos del Trabajo Realizado</th>
                         <th>Operaciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Add your table rows here -->
+                    
                 </tbody>
             </table>
         </div>
