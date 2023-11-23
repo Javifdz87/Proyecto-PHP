@@ -1,11 +1,11 @@
 <?php
       try {
         
-        include("../Proyecto-PHP/Proyecto/app/Models/Conexion.php");
+        include("./Conexion.php");
         $rs = mysqli_query(
           $enlace,
           "select nombre as provincia
-        from tbl_provincias;"
+          from tbl_provincias;"
         );
 
         $provincias = [];

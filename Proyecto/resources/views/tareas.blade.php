@@ -12,7 +12,7 @@
 
 @section('content')
 <div >
-   <form action="{{ route('tareaPost')}}">
+   <form method="post" action="{{ url('') }}" enctype="multipart/form-data">
        <label for="nif" class="required">NIF o CIF: <?php if (!empty($errores['nif'])) { echo '<span class="error">' . $errores['nif'] . '</span>'; } ?></label>
        <input type="text" maxlength="9" name="nif" id="nif">
 
@@ -42,7 +42,7 @@
 
        <label for="opcion" class="required">Provincia:</label>
        <select name="provincia">
-           <?php    //include("./provincias.php"); ?>
+           <?php //include("../Proyecto-PHP/Proyecto/resources/php/provincias.php"); ?>
        </select>
 
        <label for="estado">Estado:</label>

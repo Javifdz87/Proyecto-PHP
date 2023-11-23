@@ -1,9 +1,7 @@
 <?php
 $errores = [];
 if (!$_POST) {
-  include(".tareas.blade");
 } else {
-  //Conexion a la base de datos
   include("./conexion.php");
 
   //Identificacion
@@ -112,9 +110,9 @@ if ($dosValores !== $codigo) {
   }
 
   if ($errores) {
-    include("./index.php");
+
   } else {
-    include("./index.php");
+    
   };
 };
 //Si no coincide los dos primeros valores de cod de poblacion con los primeros del codigo postal error

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AddController;
+use App\Http\Controllers\FormularioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +14,19 @@ use App\Http\Controllers\AddController;
 |
 */
 
+// web.php
+
+Route::get('/tareas', [FormularioController::class, 'mostrarFormulario'])->name('tareas');
+Route::post('/validar', [FormularioController::class, 'validarFormulario'])->name('validar');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tareas',[AddController::class, 'get'])->name('tarea');
-Route::post('/tareas',[AddController::class, 'post'])->name('tareaPost');
-
+/*Route::get('/tareas', function () {
+    return view('tareas');
+});*/
 
 Route::get('/index', function () {
     return view('index');
