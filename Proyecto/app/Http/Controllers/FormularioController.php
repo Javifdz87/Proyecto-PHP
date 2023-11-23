@@ -11,37 +11,30 @@ class FormularioController extends Controller
         return view('tareas');
     }
     public function validarFormulario(Request $request){
-        if(){
-            self::validar();
-        }
-        else{
-            redirect()->route('tareas');
-    }
-    }
-    public static function validar(){
-        include("./conexion.php");
-
-        //Identificacion
-        $NIF = filter_input(INPUT_POST, "nif");
-        //Nombre de la perosna de contacto
-        $nombre = filter_input(INPUT_POST, "nombre");
-        //Nombre de la perosna de contacto
-        $apellidos = filter_input(INPUT_POST, "apellidos");
-        //Numero de telefono
-        $telefono = filter_input(INPUT_POST, "telefono");
-        //Descripcion de la tarea
-        $descripcion = filter_input(INPUT_POST, "descripcion");
-        //Correo electronico
-        $mail = filter_input(INPUT_POST, "mail");
-        //Poblacion
-        $poblacion = filter_input(INPUT_POST, "poblacion");
+      $errores = [];
+      
+      
+      //Identificacion
+      $nif = $request->input('nif');
+      //Nombre de la perosna de contacto
+      $nombre = $request->input("nombre");
+      //Nombre de la perosna de contacto
+      $apellidos = $request->input( "apellidos");
+      //Numero de telefono
+      $telefono = $request->input( "telefono");
+      //Descripcion de la tarea
+      $descripcion = $request->input( "descripcion");
+      //Correo electronico
+      $mail = $request->input("mail");
+      //Poblacion
+      $poblacion = $request->input("poblacion");
       // Codigo postal
-      $codigoP = filter_input(INPUT_POST, "codigo");
+      $codigoP = $request->input("codigo");
       $dosValores = substr($codigoP, 0, 2);
       var_dump($dosValores);
       
       // Provincia  
-      $provincia = filter_input(INPUT_POST, "provincia");
+      $provincia = $request->input("provincia");
       $opcion = $_POST["provincia"];
       var_dump($opcion);
       
@@ -56,21 +49,21 @@ class FormularioController extends Controller
           $errores["codigo"] = "Error, no coinciden";
       };
       
-      
-      
         //Estado de la tarea
-        $estado = filter_input(INPUT_POST, "estado");
+        $request->input("estado");
         
         //Fecha de realizacion
         $fecha_actual = date("d-m-Y");
-        $fechaRe = filter_input(INPUT_POST, "realizacion");
+        $fechaRe = $request->input("realizacion");
         $dateParts = explode("-", $fechaRe);
         $ano = isset($dateParts[0]) ? $dateParts[0] : null;
         $mes = isset($dateParts[1]) ? $dateParts[1] : null;
         $dia = isset($dateParts[2]) ? $dateParts[2] : null;
       
         //Nombre del operario
-        $operario = filter_input(INPUT_POST, "operario");
+        $operario = $request->input("operario");
+
+
         // archivo
         if ($_FILES["archivo"]["error"] == UPLOAD_ERR_OK) {
           $archivo_actual =$_FILES["archivo"]["name"]; 
@@ -95,6 +88,7 @@ class FormularioController extends Controller
       } else {
           $errores["imagen"] = " Error al subir el archivo." . $_FILES["imagen"]["error"];
       }
+      //--------------------------------------------------------------------------------------------------------------
       
        //Valor de los errores 
         if (empty($NIF)) {
@@ -126,13 +120,18 @@ class FormularioController extends Controller
             $errores["realizacion"] = "La fecha de realización debe ser posterior a la fecha actual."; 
         }
       
-        if ($errores) {
-      
-        } else {
-          
-        };
-      };
+        if (!empty($errores)) {
+          return redirect()->route('tareas')->withErrors($errores)->withInput();
+      }
+  
+      // Si no hay errores, realizar la lógica adicional
+  
+      return redirect()->route('tareas')->with('success', 'Formulario validado con éxito');
+
+    
     }
-
-
+    public static function validar(){
+    }
+      
 }
+?>

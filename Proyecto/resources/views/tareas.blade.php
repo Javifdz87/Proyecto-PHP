@@ -12,7 +12,7 @@
 
 @section('content')
 <div >
-   <form method="post" action="{{ url('') }}" enctype="multipart/form-data">
+   <form method="post" action="{{ route('validar') }}" enctype="multipart/form-data">
        <label for="nif" class="required">NIF o CIF: <?php if (!empty($errores['nif'])) { echo '<span class="error">' . $errores['nif'] . '</span>'; } ?></label>
        <input type="text" maxlength="9" name="nif" id="nif">
 
