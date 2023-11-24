@@ -60,7 +60,6 @@ if ($dosValores !== $codigo) {
     $archivo_temp = $_FILES["archivo"]["tmp_name"];
     $destino = "./temp/" .  $archivo_actual;
 
-    move_uploaded_file($archivo_temp , $destino);
     echo " El archivo actual es : $archivo_actual <br>";
     
   } else {
