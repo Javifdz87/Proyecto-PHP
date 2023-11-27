@@ -16,18 +16,23 @@ use App\Http\Controllers\FormularioController;
 
 // web.php
 
-Route::get('/tareas', [FormularioController::class, 'mostrarFormulario'])->name('tareas');
-Route::post('/validar', [FormularioController::class, 'validarFormulario'])->name('validar');
+//Route::get('/tareas', [FormularioController::class, 'mostrarFormulario'])->name('tareas');
+//Route::post('/validar', [FormularioController::class, 'validarFormulario'])->name('validar');
 
-
+//devuelve pagina welcome
 Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/tareas', function () {
+//vista de formulario tareas
+Route::get('/tareas', function () {
     return view('tareas');
-});*/
-
-Route::get('/index', function () {
-    return view('index');
 });
+
+//vista de la  base de datos tareas
+/*Route::get('/index', function () {
+    return view('index');
+});*/
+//Route::get('/index', [indexController::class, 'mostrarIndex'])->name('index');
+
+
