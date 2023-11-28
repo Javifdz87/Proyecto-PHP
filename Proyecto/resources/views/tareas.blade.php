@@ -12,7 +12,7 @@
 
 @section('content')
 <div >
-   <form method="post" action="{{ route('./index') }}" enctype="multipart/form-data">
+   <form method="post" action="" enctype="multipart/form-data">
        <label for="nif" class="required">NIF o CIF: <?php if (!empty($errores['nif'])) { echo '<span class="error">' . $errores['nif'] . '</span>'; } ?></label>
        <input type="text" maxlength="9" name="nif" id="nif">
 
@@ -42,8 +42,10 @@
 
        <label for="opcion" class="required">Provincia:</label>
        <select name="provincia">
-           <?php //include("../Proyecto-PHP/Proyecto/resources/php/provincias.php"); ?>
-       </select>
+        @foreach($provincias as $provincia)
+        <option value="{{ $provincia }}">{{ $provincia }}</option>
+        @endforeach
+    </select>
 
        <label for="estado">Estado:</label>
        <select name="estado" id="estado">

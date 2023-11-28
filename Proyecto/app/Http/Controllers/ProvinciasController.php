@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\modelProvincias;
 
 class ProvinciasController extends Controller
 {
-    public function mostrarProvincias()
+    public function controladorProvincias()
     {
-        return view('index');
-        $provincias = modelProvincias::all();
-        return view('provincias', ['usuarios' => $provincias]);
+       $modelProvincias = new modelProvincias();
+
+       $provincias=$modelProvincias->mostrarProvincias();
+       return view('tareas')->with('provincias', $provincias);
+
     }
 }
 ?>

@@ -1,26 +1,30 @@
 <?php
 
-namespace App\Http\Models;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\Models\modeloBD;
-use Illuminate\Queue\Connectors\DatabaseConnector;
+use app\Models\modeloBD;
+use mysqli;
 
-class modelProvincias extends Model
+class modelProvincias
 {
     protected $table = 'provincias';
-    protected $connection;
-
-    public function __construct()
-    {
-        $this->connection = modeloBD::getInstance()->getConnection();
-    }
 
     public function mostrarProvincias()
     {
-        $provincias = $this->connection->query("SELECT nombre as provincia from tbl_provincias;")->fetchall;
+        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+        mysqli_set_charset($enlace, "utf8");
+        $rs = mysqli_query($enlace, "SELECT nombre as provincia from tbl_provincias;");
+
+        $provincias = [];
+
+        while ($row = $rs->fetch_assoc()) {
+            $provincias[] = $row['provincia'];
+
+        }
+        
+        mysqli_close($enlace);
+
         return $provincias;
-     }
+    }
 }
-?>

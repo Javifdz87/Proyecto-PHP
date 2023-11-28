@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\ProvinciasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,8 @@ use App\Http\Controllers\FormularioController;
 
 // web.php
 
-//Route::get('/tareas', [FormularioController::class, 'mostrarFormulario'])->name('tareas');
+Route::get('/tareas', [ProvinciasController::class, 'controladorProvincias'])->name('provincias');
+
 //Route::post('/validar', [FormularioController::class, 'validarFormulario'])->name('validar');
 
 //devuelve pagina welcome
@@ -25,9 +26,9 @@ Route::get('/', function () {
 });
 
 //vista de formulario tareas
-Route::get('/tareas', function () {
-    return view('tareas');
-});
+// Route::get('/tareas', function () {
+//     return view('tareas');
+// });
 
 //vista de la  base de datos tareas
 /*Route::get('/index', function () {
