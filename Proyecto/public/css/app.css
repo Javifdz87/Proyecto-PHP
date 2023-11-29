@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Un suave tono gris claro */
+}
+
+.color-container {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    border-radius: 50%; /* Para hacer un círculo en lugar de un cuadrado */
+    margin-right: 8px; /* Separación entre contenedores de color */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Azul brillante para enlaces */
+}
+
+nav {
+    background-color: #343a40; /* Un tono oscuro para el fondo del navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra para un toque moderno */
+}
+
+.navbar-brand {
+    color: #ffffff; /* Texto blanco para el nombre de la marca */
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border-color: #ffffff; /* Botón de alternancia en blanco */
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff; /* Icono de alternancia en blanco */
+}
+
+.navbar-nav {
+    margin-left: auto; /* Mueve los elementos del navbar a la derecha */
+}
+
+.nav-link {
+    color: #ffffff; /* Texto blanco para los enlaces del navbar */
+    margin-left: 20px; /* Espaciado entre elementos del navbar */
+}
+
+.nav-link:hover {
+    color: #007bff; /* Cambia el color del texto al pasar el mouse sobre los enlaces */
+}
+#bNuevaT {
+    display: inline-block;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #3498db; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: 2px solid #3498db; /* Borde del botón */
+}
+
+/* Estilo hover del botón */
+#bNuevaT:hover {
+    background-color: #2980b9; /* Cambia el color de fondo en hover */
+    color: #fff; /* Cambia el color del texto en hover */
+}
+
+#bCerrar {
+    display: inline-block;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #3498db; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: 2px solid #3498db; /* Borde del botón */
+}
+
+/* Estilo hover del botón */
+#bCerrar:hover {
+    background-color: #2980b9; /* Cambia el color de fondo en hover */
+    color: #fff; /* Cambia el color del texto en hover */
+}

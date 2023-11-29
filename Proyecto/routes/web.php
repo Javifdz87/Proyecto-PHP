@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvinciasController;
+use App\Http\Controllers\TareasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +27,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//vista de formulario tareas
-// Route::get('/tareas', function () {
-//     return view('tareas');
-// });
-
 //vista de la  base de datos tareas
-/*Route::get('/index', function () {
-    return view('index');
-});*/
+
+
+Route::get('/index', [TareasController::class, 'controladorTareas'])->name('tareas');
+
+
 //Route::get('/index', [indexController::class, 'mostrarIndex'])->name('index');
 
 
