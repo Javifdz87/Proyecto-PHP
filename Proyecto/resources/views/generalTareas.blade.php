@@ -22,6 +22,7 @@
                         <th colspan="18">Lista de Tareas</th>
                     </tr>
                     <tr>
+                        <th>Id</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Descripción</th>
@@ -35,7 +36,8 @@
                 </thead>
                 <tbody>
                     @forelse($tareas as $tarea)
-                    <tr>          
+                    <tr> 
+                        <td>{{ $tarea['id'] }}</td>         
                         <td>{{ $tarea['Nombre'] }}</td>
                         <td>{{ $tarea['Apellidos'] }}</td>
                         <td>{{ $tarea['Descripcion'] }}</td>
@@ -47,7 +49,7 @@
                         <td>
                             <a href=""><button id="bEditar">&#x270F;</button></a>
                             <a href=""><button id="bEliminar">&#x2716;</button></a>
-                            <a href=""><button id="bVista">&#x1F441;</button></a>
+                            <a href="{{route('infoTareas',['id'=>$tarea['id']])}}"><button id="bVista">&#x1F441;</button></a>
                         </td>
                     </tr>
                     @empty
