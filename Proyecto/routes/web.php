@@ -18,7 +18,14 @@ use App\Http\Controllers\TareasController;
 
 // web.php
 
-Route::get('/tareas', [ProvinciasController::class, 'controladorProvincias'])->name('provincias');
+//Ruta login
+//Route::get('/index', [ProvinciasController::class, 'controladorProvincias'])->name('login');
+Route::get('/index', function () {
+    return view('index');
+});
+
+//Ruta para crear tareas
+Route::get('/crearTareas', [ProvinciasController::class, 'controladorProvincias'])->name('crearTareas');
 
 //Route::post('/validar', [FormularioController::class, 'validarFormulario'])->name('validar');
 
@@ -30,7 +37,7 @@ Route::get('/', function () {
 //vista de la  base de datos tareas
 
 
-Route::get('/index', [TareasController::class, 'controladorTareas'])->name('tareas');
+Route::get('/generalTareas', [TareasController::class, 'controladorTareas'])->name('generalTareas');
 
 
 //Route::get('/index', [indexController::class, 'mostrarIndex'])->name('index');

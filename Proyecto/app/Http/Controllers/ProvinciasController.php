@@ -12,7 +12,7 @@ class ProvinciasController extends Controller
        $modelProvincias = new modelProvincias();
 
        $provincias=$modelProvincias->mostrarProvincias();
-       return view('tareas')->with('provincias', $provincias);
+       return view('crearTareas')->with('provincias', $provincias);
 
     }
 }
