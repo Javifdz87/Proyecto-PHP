@@ -12,7 +12,7 @@ class TareasController extends Controller
        $modeloTareas = new modeloTareas();
 
        $tareas=$modeloTareas->mostrarTareas();
-       return view('generalTareas')->with('tareas', $tareas);
+       return view('panelAdmin')->with('tareas', $tareas);
 
     }
 }

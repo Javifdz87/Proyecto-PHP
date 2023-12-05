@@ -16,6 +16,20 @@ CREATE TABLE tareas (
     Anotaciones_posteriores TEXT
 );
 
+CREATE TABLE Usuario (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL PRIMARY KEY,
+    usuario VARCHAR(255) NOT NULL,
+    contraseña VARCHAR(255) NOT NULL,
+    rol BOOLEAN
+);
+
+
+INSERT INTO Usuario VALUES (1,'admin@gmail.com', 'admin', 'admin', 1);
+INSERT INTO Usuario VALUES (0,'juan@gmail.com', 'Juan de Dios', 'juan', 0);
+
+
+
 SELECT id, NIF, Nombre, Apellidos, Descripcion, email, Estado, Creacion_tarea, Operario, fecha_realizacion 
 FROM tareas
 

@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvinciasController;
 use App\Http\Controllers\TareasController;
-use App\Http\Controllers\infoTareasController;
+use App\Http\Controllers\adminController;
+
 
 
 /*
@@ -30,11 +31,18 @@ Route::get('/crearTareas', [ProvinciasController::class, 'controladorProvincias'
 
 
 //Ruta para ver las tareas en una vista general
-Route::get('/generalTareas', [TareasController::class, 'controladorTareas'])->name('generalTareas');
+Route::get('/panelAdmin', [TareasController::class, 'controladorTareas'])->name('panelAdmin');
 
 
-//Ruta para ver la informacion completa de las tareas
-Route::get('/infoTareas/{id}',   [infoTareasController::class, 'controladorinfoTareas'])->name('infoTareas');
+//Ruta de administrador de las tareas
+Route::get('/infoTareas/{id}',   [adminController::class, 'controladorinfoTareas'])->name('infoTareas');
+
+Route::post('/eliminarTarea/{id}',   [adminController::class, 'eliminarTarea'])->name('eliminarTareas');
+
+
+
+//controlodar vista quieres eliminar tarea
+Route::get('/eliminarTarea/{id}',  [adminController::class, 'vistaEliminar'])->name('vistaEliminar');
 
 
 
@@ -42,3 +50,5 @@ Route::get('/infoTareas/{id}',   [infoTareasController::class, 'controladorinfoT
 Route::get('/', function () {
     return view('welcome');
 });
+
+
