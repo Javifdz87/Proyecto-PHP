@@ -60,6 +60,7 @@
 
        <label for="operario">Operario:</label>
        <select name="operario" id="operario">
+        
            <option value="operario1">Ramon</option>
            <option value="operario2">Juan de Dios</option>
            <option value="operario3">Messi</option>

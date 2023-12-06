@@ -7,7 +7,8 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="">
+    <form method="POST" action="{{ route('login') }}" >
+    @csrf
         <h1>Iniciar de sesion</h1>
         <label for="">Email</label>
         <input type="text" placeholder="Email" name="email"> <br>

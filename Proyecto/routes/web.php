@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvinciasController;
 use App\Http\Controllers\TareasController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OperariosController;
+use App\Http\Controllers\ControladorOperarios;
 
 
 
@@ -21,13 +24,16 @@ use App\Http\Controllers\adminController;
 // web.php
 
 //Ruta login
-//Route::get('/index', [ProvinciasController::class, 'controladorProvincias'])->name('login');
-Route::get('/index', function () {
-    return view('index')->name('index');
-});
+Route::post('/index', [LoginController::class, 'controladorLogin'])->name('login');
+
+
+//Ruta panel de Operarios
+Route::get('/panelOperario', [ControladorOperarios::class, 'controladorTareas'])->name('panelOperario');
+
 
 //Ruta para crear tareas
 Route::get('/crearTareas', [ProvinciasController::class, 'controladorProvincias'])->name('crearTareas');
+//Route::get('/crearTareas', [OperariosController::class, 'controladorOperarios'])->name('mostrarOperarios');
 
 
 //Ruta para ver las tareas en una vista general

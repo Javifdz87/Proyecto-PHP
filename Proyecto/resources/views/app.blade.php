@@ -22,10 +22,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route("crearTareas")}}" ><button id="bNuevaT">Nueva tarea</button></a>
+                        <a class="nav-link active" aria-current="page" href="{{route('crearTareas')}}" ><button id="bNuevaT">Nueva tarea</button></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=""><button id="bCerrar">Cerrar sesión</button></a>
+                        <a class="nav-link" href="{{route('login')}}"><button id="bCerrar">Cerrar sesión</button></a>
                     </li>
                 </ul>
             </div>
