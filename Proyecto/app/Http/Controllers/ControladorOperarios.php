@@ -3,29 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\modeloAdmin;
 use App\Models\modeloTareas;
 
 
+//Panel de Operarios
+
 class controladorOperarios extends Controller
 {
-    public function controladorTareas()
+    public function mostrarTareasOperario()
     {
-       $modeloTareas = new modeloTareas();
+       $mostrarTareasOperarios = new modeloTareas();
 
-       $tareas=$modeloTareas->mostrarTareas();
+       $tareas=$mostrarTareasOperarios->mostrarTareasOperarios();
        return view('panelOperario')->with('tareas', $tareas);
 
     }
 
     public function controladorinfoTareas($id)
     {
-       $modeloAdmin = new modeloAdmin();
+       $modeloTareas = new modeloTareas();
 
-       $tareas=$modeloAdmin->mostrarInformacionTareas($id);
+       $tareas=$modeloTareas->mostrarInformacionTareas($id);
        return view('infoTareas')->with('tareas', $tareas[0]);
 
     }
+
+    
     
 }
 ?>

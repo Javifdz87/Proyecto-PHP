@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    @extends('app')
+    @extends('navOperario')
 
     @section('content')
     <div class="container">

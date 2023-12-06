@@ -11,6 +11,9 @@
 </head>
 
 <body>
+@extends('navAdmin')
+
+@section('content')
   <form>
     <label for="usuario">Usuario</label>
     <input type="text" id="usuario" placeholder="Usuario">
@@ -30,6 +33,8 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
     <script type="text/javascript" src="scripts/register.js"></script>
   </form>
+  @endsection
+
 </body>
 
 </html>

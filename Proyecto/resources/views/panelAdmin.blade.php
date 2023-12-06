@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    @extends('app')
+    @extends('navAdmin')
 
     @section('content')
     

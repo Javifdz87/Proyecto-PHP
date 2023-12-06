@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\modeloLogin;
 
+
+//controlador para loguearse
 class LoginController extends Controller {
     public function controladorLogin(Request $request) {
         $email = $request->input('email');

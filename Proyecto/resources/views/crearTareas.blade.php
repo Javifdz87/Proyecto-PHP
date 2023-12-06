@@ -8,7 +8,7 @@
     <title>Crear Tareas</title>
 </head>
 <body>
-    @extends('app')
+    @extends('navAdmin')
 
 @section('content')
 <div >
@@ -58,12 +58,12 @@
        <label for="creacion" class="required">Fecha de creacion de la tarea:</label>
        <input type="date" name="creacion" id="creacion">
 
-       <label for="operario">Operario:</label>
-       <select name="operario" id="operario">
-        
-           <option value="operario1">Ramon</option>
-           <option value="operario2">Juan de Dios</option>
-           <option value="operario3">Messi</option>
+       <label for="opcion">Operario:</label>
+       <select name="operario">
+       @foreach($operarios as $operario)
+        <option value="{{ $operario }}">{{ $operario }}</option>
+        @endforeach
+           
        </select>
 
        <label for="realizacion" class="required">Fecha de realizacion:<?php if (!empty($errores['realizacion'])) { echo '<span class="error">' . $errores['realizacion'] . '</span>'; } ?></label>

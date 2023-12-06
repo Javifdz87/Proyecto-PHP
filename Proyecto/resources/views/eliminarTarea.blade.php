@@ -9,6 +9,9 @@
 
 </head>
 <body>
+@extends('navAdmin')
+
+@section('content')
     <form action="{{route('eliminarTareas',['id'=>$tareas['id']])}}" method="POST">
         @csrf
 
@@ -55,6 +58,7 @@
             </table>
         </div>
     </div>
-    
+    @endsection
+
 </body>
 </html>

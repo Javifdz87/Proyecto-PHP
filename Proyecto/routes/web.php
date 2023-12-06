@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProvinciasController;
+
 use App\Http\Controllers\TareasController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\OperariosController;
 use App\Http\Controllers\ControladorOperarios;
 
 
@@ -27,17 +26,20 @@ use App\Http\Controllers\ControladorOperarios;
 Route::post('/index', [LoginController::class, 'controladorLogin'])->name('login');
 
 
-//Ruta panel de Operarios
-Route::get('/panelOperario', [ControladorOperarios::class, 'controladorTareas'])->name('panelOperario');
+//Ruta panel de Operarios que solo salgan sus tareas que puede manejar
+Route::get('/panelOperario', [ControladorOperarios::class, 'mostrarTareasOperario'])->name('panelOperario');
+
+//ver informacion desde panel operario
+Route::get('/infoTareas/{id}',   [ControladorOperarios::class, 'controladorinfoTareas'])->name('infoTareas');
+
 
 
 //Ruta para crear tareas
-Route::get('/crearTareas', [ProvinciasController::class, 'controladorProvincias'])->name('crearTareas');
-//Route::get('/crearTareas', [OperariosController::class, 'controladorOperarios'])->name('mostrarOperarios');
+Route::get('/crearTareas', [TareasController::class, 'mostrarFormulario'])->name('crearTareas');
 
 
 //Ruta para ver las tareas en una vista general
-Route::get('/panelAdmin', [TareasController::class, 'controladorTareas'])->name('panelAdmin');
+Route::get('/panelAdmin', [adminController::class, 'mostrarTareasAdmin'])->name('panelAdmin');
 
 
 //Ruta de administrador de las tareas

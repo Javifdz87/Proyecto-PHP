@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    @extends('app')
+    @extends('navOperario')
 
     @section('content')
     
@@ -20,7 +20,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr class="table-header">
-                        <th colspan="18">Lista de Tareas (Operario: )</th>
+                        <th colspan="18">Lista de Tareas (Operario: Juan de Dios)</th>
                     </tr>
                     <tr>
                         <th>Id</th>
@@ -61,7 +61,6 @@
             </table>
         </div>
     </div>
-    <button>Registrar Nuevo Operador</button>
     @endsection
 </body>
 

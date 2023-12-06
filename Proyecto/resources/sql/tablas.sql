@@ -1,3 +1,11 @@
+CREATE TABLE Usuario (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(250) NOT NULL PRIMARY KEY,
+    usuario VARCHAR(250) NOT NULL,
+    contraseña VARCHAR(250) NOT NULL,
+    rol BOOLEAN
+);
+
 CREATE TABLE tareas (
     id INT PRIMARY KEY,
     NIF VARCHAR(9),
@@ -13,16 +21,15 @@ CREATE TABLE tareas (
     Creacion_tarea DATE,
     Operario VARCHAR(250),
     fecha_realizacion DATE,
-    Anotaciones_posteriores TEXT
+    Anotaciones_posteriores TEXT,
+    Foreign Key (email) REFERENCES Usuario(email)
 );
 
-CREATE TABLE Usuario (
-    id INT NOT NULL AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL PRIMARY KEY,
-    usuario VARCHAR(255) NOT NULL,
-    contraseña VARCHAR(255) NOT NULL,
-    rol BOOLEAN
-);
+SELECT t.id, t.Nombre, t.Apellidos, t.Descripcion, t.email, t.Estado, t.Creacion_tarea, t.Operario, t.fecha_realizacion 
+FROM usuario u, tareas t
+WHERE u.usuario=t.operario
+AND u.usuario='Juan de Dios'
+AND u.rol=0;
 
 
 INSERT INTO Usuario VALUES (1,'admin@gmail.com', 'admin', 'admin', 1);

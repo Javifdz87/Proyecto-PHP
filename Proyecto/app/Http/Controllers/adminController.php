@@ -4,14 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\modeloAdmin;
+use App\Models\modeloTareas;
 
+//Panel de administrador
 class adminController extends Controller
 {
+    public function mostrarTareasAdmin()
+    {
+       $mostrarTareasAdmin = new modeloTareas();
+
+       $tareas=$mostrarTareasAdmin->mostrarTareasAdmin();
+       return view('panelAdmin')->with('tareas', $tareas);
+
+    }
+
     public function controladorinfoTareas($id)
     {
-       $modeloAdmin = new modeloAdmin();
+       $modeloTareas = new modeloTareas();
 
-       $tareas=$modeloAdmin->mostrarInformacionTareas($id);
+       $tareas=$modeloTareas->mostrarInformacionTareas($id);
        return view('infoTareas')->with('tareas', $tareas[0]);
 
     }

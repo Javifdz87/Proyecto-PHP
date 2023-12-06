@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Http\Request;
 use app\Models\modeloBD;
 use mysqli;
+//modelo para la implementacion en la creacion de tareas
 
 class modelProvincias
 {
