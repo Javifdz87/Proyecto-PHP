@@ -10,6 +10,14 @@ use App\Models\modeloTareas;
 
 class controladorOperarios extends Controller
 {
+   public function vistaTareasGeneral()
+    {
+       $mostrarTareasGeneral = new modeloTareas();
+
+       $tareas=$mostrarTareasGeneral->mostrarTareasAdmin();
+       return view('vistaOperario')->with('tareas', $tareas);
+
+    }
     public function mostrarTareasOperario()
     {
        $mostrarTareasOperarios = new modeloTareas();

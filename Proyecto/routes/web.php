@@ -26,6 +26,9 @@ use App\Http\Controllers\ControladorOperarios;
 Route::post('/index', [LoginController::class, 'controladorLogin'])->name('login');
 
 
+//Ruta para ver todos las tareas desde las cuentas operario
+Route::get('/vistaOperario', [ControladorOperarios::class, 'vistaTareasGeneral'])->name('vistaOperario');
+
 //Ruta panel de Operarios que solo salgan sus tareas que puede manejar
 Route::get('/panelOperario', [ControladorOperarios::class, 'mostrarTareasOperario'])->name('panelOperario');
 
