@@ -5,41 +5,45 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\modeloLogin;
 
-
-//controlador para loguearse
 class LoginController extends Controller {
-    public function mostrarLogin(){
+
+    public function mostrarLogin() {
         return view('index');
     }
+
     public function controladorLogin(Request $request) {
         $email = $request->input('email');
         $password = $request->input('password');
 
+        $errores = [];
+
+        if (empty($email)) {
+            $errores['email'] = "Error, el campo Email no puede estar vacío";
+        }
+
+        if (empty($password)) {
+            $errores['password'] = "Error, el campo Contraseña no puede estar vacío";
+        }
+
+        if (!empty($errores)) {
+            return view('index', ['errores' => $errores]);
+        }
+
         $modeloLogin = new modeloLogin();
         $result = $modeloLogin->comprobarLogin($email, $password);
 
-        // Manejar el resultado según tus necesidades
-        switch($result) {
+        switch ($result) {
             case 'admin_success':
-                // Acción para usuarios administradores
                 return redirect()->route('panelAdmin');
                 break;
 
             case 'user_success':
-                // Acción para usuarios normales
-                // Puedes redirigir a otra vista o realizar otra acción según tus necesidades
                 return redirect()->route('vistaOperario');
-
                 break;
 
-            case 'failure':
-                // Acción en caso de falla de inicio de sesión
-                // Puedes redirigir a una vista de error o realizar otra acción según tus necesidades
-                break;
-
-            default:
-                // Acción por defecto
-                // Puedes redirigir a una vista por defecto o realizar otra acción según tus necesidades
+            case 'incorrect':
+                $errores['noCoinciden'] = "Las credenciales son incorrectas";
+                return view('index', ['errores' => $errores]);
                 break;
         }
     }

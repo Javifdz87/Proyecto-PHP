@@ -8,16 +8,26 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <form method="POST" action="{{ route('login') }}" >
-    @csrf
-        <h1>Iniciar de sesion</h1>
-        <label for="">Email</label>
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <h1>Iniciar sesión</h1>
+        <label for="email">Email</label>
         <input type="text" placeholder="Email" name="email"> <br>
-        <label for="">Contraseña</label>
+        @if(isset($errores['email']))
+            <p class="error">{{ $errores['email'] }}</p>
+        @endif
+
+        <label for="password">Contraseña</label>
         <input type="password" placeholder="Contraseña" name="password"><br>
-        <input type="submit" value="Iniciar sesion">
+        @if(isset($errores['password']))
+            <p class="error">{{ $errores['password'] }}</p>
+        @endif
+
+        @if(isset($errores['noCoinciden']))
+            <p class="error">{{ $errores['noCoinciden'] }}</p>
+        @endif
+
+        <input type="submit" value="Iniciar sesión">
     </form>
-
-
 </body>
 </html>

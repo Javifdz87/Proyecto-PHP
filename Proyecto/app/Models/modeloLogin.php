@@ -29,7 +29,7 @@ class modeloLogin {
                 }
             } else {
                 // No se encontraron coincidencias, lo que significa que las credenciales son incorrectas
-                return "failure";
+                return "incorrect";
             }
         } else {
             // Error en la ejecución de la consulta
