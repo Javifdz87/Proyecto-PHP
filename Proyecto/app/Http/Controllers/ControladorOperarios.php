@@ -32,7 +32,7 @@ class controladorOperarios extends Controller
        $modeloTareas = new modeloTareas();
 
        $tareas=$modeloTareas->mostrarInformacionTareas($id);
-       return view('infoTareas')->with('tareas', $tareas[0]);
+       return view('infoTareasOperario')->with('tareas', $tareas[0]);
 
     }
 

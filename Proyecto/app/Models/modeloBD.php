@@ -43,3 +43,4 @@ $database = modeloBD::getInstance();
 
 // Ejemplo de consulta SQL utilizando la instancia de la base de datos
 $resultado = $database->query('SELECT * FROM usuarios');
+?>

@@ -27,3 +27,4 @@ class modelOperarios
         return $operarios;
     }
 }
+?>

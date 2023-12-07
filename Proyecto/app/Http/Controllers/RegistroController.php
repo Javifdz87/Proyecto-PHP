@@ -3,33 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\modeloLogin;
+use App\Models\modeloRegistro;
+
 
 
 //controlador para loguearse
-class LoginController extends Controller {
-    public function mostrarLogin(){
-        return view('index');
+class RegistroController extends Controller {
+    public function mostrarRegistro() {
+        return view('registroOperario');
     }
-    public function controladorLogin(Request $request) {
+    public function controladorRegistro(Request $request) {
+        $usuario = $request->input('usuario');
         $email = $request->input('email');
         $password = $request->input('password');
+        $repitPassword = $request->input('repitPassword');
 
-        $modeloLogin = new modeloLogin();
-        $result = $modeloLogin->comprobarLogin($email, $password);
+        $modeloRegistro = new modeloRegistro();
+        $result = $modeloRegistro->comprobarRegistro($usuario, $email, $password, $repitPassword);
 
         // Manejar el resultado según tus necesidades
         switch($result) {
-            case 'admin_success':
+            case 'success':
                 // Acción para usuarios administradores
                 return redirect()->route('panelAdmin');
                 break;
 
-            case 'user_success':
+            case 'email_exists':
+                // Acción para usuarios Operarios
+                return redirect()->route('mostrarRegistro');
+                break;
+            case 'password_diferentes':
                 // Acción para usuarios normales
-                // Puedes redirigir a otra vista o realizar otra acción según tus necesidades
-                return redirect()->route('vistaOperario');
-
+                return redirect()->route('mostrarRegistro');
                 break;
 
             case 'failure':

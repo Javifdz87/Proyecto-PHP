@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TareasController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\ControladorOperarios;
 
 
@@ -23,7 +24,12 @@ use App\Http\Controllers\ControladorOperarios;
 // web.php
 
 //Ruta login
+Route::get('/index', [LoginController::class, 'mostrarLogin'])->name('mostrarLogin');
 Route::post('/index', [LoginController::class, 'controladorLogin'])->name('login');
+
+//Ruta Registro
+Route::get('/registroOperario', [RegistroController::class, 'mostrarRegistro'])->name('mostrarRegistro');
+Route::post('/registroOperario', [RegistroController::class, 'controladorRegistro'])->name('registroOperario');
 
 
 //Ruta para ver todos las tareas desde las cuentas operario
@@ -32,8 +38,10 @@ Route::get('/vistaOperario', [ControladorOperarios::class, 'vistaTareasGeneral']
 //Ruta panel de Operarios que solo salgan sus tareas que puede manejar
 Route::get('/panelOperario', [ControladorOperarios::class, 'mostrarTareasOperario'])->name('panelOperario');
 
-//ver informacion desde panel operario
-Route::get('/infoTareas/{id}',   [ControladorOperarios::class, 'controladorinfoTareas'])->name('infoTareas');
+//ver informacion desde panel operario y admin
+Route::get('/infoTareasOperario/{id}',   [ControladorOperarios::class, 'controladorinfoTareas'])->name('infoTareasOperario');
+Route::get('/infoTareasAdmin/{id}',   [adminController::class, 'controladorinfoTareas'])->name('infoTareasAdmin');
+
 
 
 

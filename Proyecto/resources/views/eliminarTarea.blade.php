@@ -12,15 +12,7 @@
 @extends('navAdmin')
 
 @section('content')
-    <form action="{{route('eliminarTareas',['id'=>$tareas['id']])}}" method="POST">
-        @csrf
-
-        <h1>Se va a proceder a eliminar la tarea</h1>
-        <h2>¿Quieres eliminarla?</h2>
-         <input type="submit" value="Si">
-    </form>
-    <a href="{{route('panelAdmin')}}"><button>No</button></a>
-
+    
     <div class="container">
         <div class="tabla">
             <table class="table table-hover">
@@ -57,6 +49,14 @@
                 </tbody>
             </table>
         </div>
+        <form action="{{route('eliminarTareas',['id'=>$tareas['id']])}}" method="POST">
+        @csrf
+
+        <h1>Se va a proceder a eliminar la tarea</h1>
+        <h2>¿Quieres eliminarla?</h2>
+         <input type="submit" value="Si">
+    </form>
+    <a href="{{route('panelAdmin')}}"><button>No</button></a>
     </div>
     @endsection
 

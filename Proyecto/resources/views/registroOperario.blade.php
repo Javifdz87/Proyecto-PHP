@@ -4,35 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registrar</title>
-  <link rel="stylesheet" type="text/css" href="./css/registro.css" />
-
-
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/registro.css">
+  <title>Registro</title>
 </head>
 
 <body>
-@extends('navAdmin')
+  @extends('navAdmin')
 
-@section('content')
-  <form>
-    <label for="usuario">Usuario</label>
-    <input type="text" id="usuario" placeholder="Usuario">
+  @section('content')
+  <div class="container">
+    <form method="POST" action="{{ route('registroOperario') }}">
+      @csrf
+      <h1>Registrar Operario</h1>
 
-    <label for="email">Email</label>
-    <input type="text" id="email" placeholder="Email">
+      <label for="usuario">Operario</label>
+      <input type="text" name="usuario" placeholder="Usuario">
 
-    <label for="password">Contraseña</label>
-    <input type="password" id="password" placeholder="Contraseña">
+      <label for="email">Email Operario</label>
+      <input type="text" name="email" placeholder="Email">
 
-    <label for="password">Confirmar contraseña</label>
-    <input type="password" id="password" placeholder="Contraseña">
+      <label for="password">Contraseña</label>
+      <input type="password" name="password" placeholder="Contraseña">
 
-    <button type="button">Registrar Operario</button>
-    <a href="index.html"">Volver</a>
+      <label for="password">Confirmar contraseña</label>
+      <input type="password" name="repitPassword" placeholder="Contraseña">
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
-    <script type="text/javascript" src="scripts/register.js"></script>
-  </form>
+      <button type="submit">Registrar Operario</button>
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script type="text/javascript" src="scripts/register.js"></script>
+    </form>
+  </div>
+
   @endsection
 
 </body>

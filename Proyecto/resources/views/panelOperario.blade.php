@@ -49,7 +49,7 @@
                         <td>{{ $tarea['fecha_realizacion'] }}</td>
                         <td>
                             <a href=""><button id="bEditar">&#x270F;</button></a>
-                            <a href="{{route('infoTareas',['id'=>$tarea['id']])}}"><button id="bVista">&#x1F441;</button></a>
+                            <a href="{{route('infoTareasOperario',['id'=>$tarea['id']])}}"><button id="bVista">&#x1F441;</button></a>
                         </td>
                     </tr>
                     @empty

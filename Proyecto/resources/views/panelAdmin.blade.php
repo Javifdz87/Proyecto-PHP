@@ -50,7 +50,7 @@
                         <td>
                             <a href=""><button id="bEditar">&#x270F;</button></a>
                             <a href="{{route('vistaEliminar',['id'=>$tarea['id']])}}"><button id="bEliminar">&#x2716;</button></a>
-                            <a href="{{route('infoTareas',['id'=>$tarea['id']])}}"><button id="bVista">&#x1F441;</button></a>
+                            <a href="{{route('infoTareasAdmin',['id'=>$tarea['id']])}}"><button id="bVista">&#x1F441;</button></a>
                         </td>
                     </tr>
                     @empty
@@ -62,7 +62,6 @@
             </table>
         </div>
     </div>
-    <button>Registrar Nuevo Operador</button>
     @endsection
 </body>
 

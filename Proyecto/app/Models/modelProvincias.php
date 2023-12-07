@@ -29,3 +29,4 @@ class modelProvincias
         return $provincias;
     }
 }
+?>

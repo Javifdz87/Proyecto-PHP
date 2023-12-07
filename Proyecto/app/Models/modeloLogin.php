@@ -8,7 +8,7 @@ use mysqli;
 
 class modeloLogin {
     public function comprobarLogin($email, $password) {
-        $enlace = mysqli_connect("localhost", "javifernandez", "javifdz", "javifernandez");
+        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
 
         $rs = mysqli_query($enlace, "SELECT * FROM Usuario WHERE email='$email' AND contraseña='$password'");
@@ -19,7 +19,7 @@ class modeloLogin {
                 // Se encontró al menos un registro, lo que significa que las credenciales son correctas
 
                 // Verifica si la cuenta es de administrador
-                $admin = mysqli_query($enlace, "SELECT * FROM Usuario WHERE email='$email' AND contraseña='$password' AND es_admin = 1");
+                $admin = mysqli_query($enlace, "SELECT * FROM usuario WHERE email='$email' AND contraseña='$password' AND rol = 1");
                 $es_admin = mysqli_num_rows($admin) > 0;
 
                 if($es_admin) {
@@ -39,3 +39,4 @@ class modeloLogin {
 
     }
 }
+?>

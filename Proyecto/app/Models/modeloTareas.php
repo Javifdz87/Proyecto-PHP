@@ -98,3 +98,4 @@ class modeloTareas
         return $tareas;
     }
 }
+?>
