@@ -18,6 +18,33 @@ class RegistroController extends Controller {
         $password = $request->input('password');
         $repitPassword = $request->input('repitPassword');
 
+        $errores = [];
+
+        if (empty($usuario)) {
+            $errores['usuario'] = "Error, el campo Usuario no puede estar vacío";
+        }
+
+        if (empty($email)) {
+            $errores["email"] = " Error, el campo de correo electrónico no puede estar vacío.";
+          } elseif (strpos($email, '@') === false || strpos($email, '.') === false) {
+            $errores["email"] = " Error, el correo electrónico debe contener '@' y '.'.";
+          };
+
+        if (empty($password)) {
+            $errores['password'] = "Error, el campo Password no puede estar vacío";
+        }
+
+        if (empty($repitPassword)) {
+            $errores['repitPassword'] = "Error, el campo Repetir Contraseña no puede estar vacío";
+        }
+        if($password !== $repitPassword){
+            $errores['noCoinciden'] = "Error, las contraseñas no coinciden";
+        }
+        
+        if (!empty($errores)) {
+            return view('registroOperario', ['errores' => $errores]);
+        }
+
         $modeloRegistro = new modeloRegistro();
         $result = $modeloRegistro->comprobarRegistro($usuario, $email, $password, $repitPassword);
 
@@ -37,16 +64,18 @@ class RegistroController extends Controller {
                 return redirect()->route('mostrarRegistro');
                 break;
 
-            case 'failure':
+            case 'incorrect':
                 // Acción en caso de falla de inicio de sesión
-                // Puedes redirigir a una vista de error o realizar otra acción según tus necesidades
+                $errores['insertar'] = "Nose puedo insertar el Operario";
+                return view('registroOperario', ['errores' => $errores]);
                 break;
 
-            default:
-                // Acción por defecto
-                // Puedes redirigir a una vista por defecto o realizar otra acción según tus necesidades
-                break;
+          
         }
     }
+    public function gestorErrores(Request $request) {
+        
+    }
+
 }
 ?>

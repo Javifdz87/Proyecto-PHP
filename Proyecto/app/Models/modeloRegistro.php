@@ -32,7 +32,7 @@ class modeloRegistro {
                         return "success";
                     } else {
                         // Error en la inserción
-                        return "failure";
+                        return "incorrect";
                     }
                 }
 

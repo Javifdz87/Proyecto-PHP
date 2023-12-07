@@ -44,9 +44,9 @@ Route::get('/infoTareasAdmin/{id}',   [adminController::class, 'controladorinfoT
 
 
 
-
 //Ruta para crear tareas
 Route::get('/crearTareas', [TareasController::class, 'mostrarFormulario'])->name('crearTareas');
+Route::post('/crearTareas', [TareasController::class, 'controladorTareas'])->name('crearTareas');
 
 
 //Ruta para ver las tareas en una vista general
@@ -55,7 +55,6 @@ Route::get('/panelAdmin', [adminController::class, 'mostrarTareasAdmin'])->name(
 
 //Ruta de administrador de las tareas
 Route::get('/infoTareas/{id}',   [adminController::class, 'controladorinfoTareas'])->name('infoTareas');
-
 Route::post('/eliminarTarea/{id}',   [adminController::class, 'eliminarTarea'])->name('eliminarTareas');
 
 

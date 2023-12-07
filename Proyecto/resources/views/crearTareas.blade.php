@@ -12,7 +12,8 @@
 
 @section('content')
 <div >
-   <form method="post" action="" enctype="multipart/form-data">
+   <form method="post" action="{{ route('crearTareas') }}" enctype="multipart/form-data">
+   @csrf
        <label for="nif" class="required">NIF o CIF: <?php if (!empty($errores['nif'])) { echo '<span class="error">' . $errores['nif'] . '</span>'; } ?></label>
        <input type="text" maxlength="9" name="nif" id="nif">
 
@@ -29,8 +30,8 @@
        <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
        
 
-       <label for="mail" class="required">Correo electrónico:<?php if (!empty($errores['mail'])) { echo '<span class="error">' . $errores['mail'] . '</span>'; } ?></label>
-       <input type="text" name="mail" id="mail">
+       <label for="email" class="required">Correo electrónico:<?php if (!empty($errores['email'])) { echo '<span class="error">' . $errores['email'] . '</span>'; } ?></label>
+       <input type="text" name="email" id="email">
        
 
        <label for="poblacion">Poblacion:</label>
@@ -73,14 +74,7 @@
        <label for="anotaciones">Anotaciones posteriores:</label>
        <textarea name="anotaciones" id="anotaciones" cols="30" rows="5"></textarea>
 
-       <label for="archivo">Fichero resumen de tareas realizadas:<?php if (!empty($errores['archivo'])) { echo '<span class="error">' . $errores['archivo'] . '</span>'; } ?></label>
-       <input type="file" name="archivo" id="archivo">
        
-
-       <label for="imagen">Fotos del trabajo realizado:<?php if (!empty($errores['imagen'])) { echo '<span class="error">' . $errores['imagen'] . '</span>'; } ?></label>
-       <input type="file" name="imagen" id="imagen">
-       
-
        <input type="submit" value="Guardar">
    </form>
 </div>
