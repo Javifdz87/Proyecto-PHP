@@ -9,8 +9,6 @@ use mysqli;
 
 class modelProvincias
 {
-    protected $table = 'provincias';
-
     public function mostrarProvincias()
     {
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
@@ -27,6 +25,24 @@ class modelProvincias
         mysqli_close($enlace);
 
         return $provincias;
+    }
+
+    public function codigoProvincias($opcion)
+    {
+        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+        mysqli_set_charset($enlace, "utf8");
+        $rs = mysqli_query($enlace, "SELECT cod as codigo FROM tbl_provincias WHERE nombre= '$opcion';");
+
+        $codigo = [];
+
+        while ($row = $rs->fetch_assoc()) {
+            $codigo[] = $row['codigo'];
+
+        }
+        
+        mysqli_close($enlace);
+
+        return $codigo;
     }
 }
 ?>

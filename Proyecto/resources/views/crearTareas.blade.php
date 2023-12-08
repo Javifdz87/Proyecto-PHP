@@ -12,40 +12,61 @@
 
 @section('content')
 <div >
-   <form method="post" action="{{ route('crearTareas') }}" enctype="multipart/form-data">
+   <form method="POST" action="{{ route('crearTareas') }}">
    @csrf
-       <label for="nif" class="required">NIF o CIF: <?php if (!empty($errores['nif'])) { echo '<span class="error">' . $errores['nif'] . '</span>'; } ?></label>
+
+       <label for="nif" class="required">NIF o CIF:</label>
        <input type="text" maxlength="9" name="nif" id="nif">
+       @if(isset($errores['nif']))
+            <p class="error">{{ $errores['nif'] }}</p>
+        @endif
 
-       <label for="nombre" class="required">Nombre:<?php if (!empty($errores['nombre'])) { echo '<span class="error">' . $errores['nombre'] . '</span>'; } ?></label>
+       <label for="nombre" class="required">Nombre:</label>
        <input type="text" name="nombre" id="nombre">
-
-       <label for="nombre" class="required">Apellidos:<?php if (!empty($errores['apellidos'])) { echo '<span class="error">' . $errores['apellidos'] . '</span>'; } ?></label>
+       @if(isset($errores['nombre']))
+            <p class="error">{{ $errores['nombre'] }}</p>
+        @endif
+       <label for="nombre" class="required">Apellidos:</label>
        <input type="text" name="apellidos" id="apellidos">
-
-       <label for="telefono" class="required">Telefono de contacto:<?php if (!empty($errores['telefono'])) { echo '<span class="error">' . $errores['telefono'] . '</span>'; } ?></label>
+       @if(isset($errores['apellidos']))
+            <p class="error">{{ $errores['apellidos'] }}</p>
+        @endif
+       <label for="telefono" class="required">Telefono de contacto:</label>
        <input type="tel" name="telefono" maxlength="9" id="telefono">
-
-       <label for="descripcion">Descripción:<?php if (!empty($errores['descripcion'])) { echo '<span class="error">' . $errores['descripcion'] . '</span>'; } ?></label>
+       @if(isset($errores['telefono']))
+            <p class="error">{{ $errores['telefono'] }}</p>
+        @endif
+       <label for="descripcion" class="required">Descripción:</label>
        <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
-       
+       @if(isset($errores['descripcion']))
+            <p class="error">{{ $errores['descripcion'] }}</p>
+        @endif
 
-       <label for="email" class="required">Correo electrónico:<?php if (!empty($errores['email'])) { echo '<span class="error">' . $errores['email'] . '</span>'; } ?></label>
+       <label for="email" class="required">Correo electrónico:</label>
        <input type="text" name="email" id="email">
-       
+       @if(isset($errores['email']))
+            <p class="error">{{ $errores['email'] }}</p>
+        @endif
 
-       <label for="poblacion">Poblacion:</label>
+       <label for="poblacion" class="required">Poblacion:</label>
        <input type="text" name="poblacion" id="poblacion">
+       @if(isset($errores['poblacion']))
+            <p class="error">{{ $errores['poblacion'] }}</p>
+        @endif
 
-       <label for="codigo" class="required">Codigo Postal:<?php if (!empty($errores['codigo'])) { echo '<span class="error">' . $errores['codigo'] . '</span>'; } ?></label>
+       <label for="codigo" class="required">Codigo Postal:</label>
        <input type="text" maxlength="5" pattern="\d{5}" name="codigo" id="codigo">
-       
+       @if(isset($errores['codigo']))
+            <p class="error">{{ $errores['codigo'] }}</p>
+        @endif
 
        <label for="opcion" class="required">Provincia:</label>
        <select name="provincia">
+       @if(isset($provincias))
         @foreach($provincias as $provincia)
-        <option value="{{ $provincia }}">{{ $provincia }}</option>
+            <option value="{{ $provincia }}">{{ $provincia }}</option>
         @endforeach
+    @endif
     </select>
 
        <label for="estado">Estado:</label>
@@ -61,15 +82,18 @@
 
        <label for="opcion">Operario:</label>
        <select name="operario">
+       @if(isset($operarios))
        @foreach($operarios as $operario)
         <option value="{{ $operario }}">{{ $operario }}</option>
         @endforeach
-           
+        @endif
        </select>
 
-       <label for="realizacion" class="required">Fecha de realizacion:<?php if (!empty($errores['realizacion'])) { echo '<span class="error">' . $errores['realizacion'] . '</span>'; } ?></label>
+       <label for="realizacion" class="required">Fecha de realizacion:</label>
        <input type="date" name="realizacion" id="realizacion">
-       
+       @if(isset($errores['realizacion']))
+            <p class="error">{{ $errores['realizacion'] }}</p>
+        @endif
 
        <label for="anotaciones">Anotaciones posteriores:</label>
        <textarea name="anotaciones" id="anotaciones" cols="30" rows="5"></textarea>
