@@ -26,6 +26,15 @@ class adminController extends Controller
        return view('infoTareasAdmin')->with('tareas', $tareas[0]);
 
     }
+
+    public function editarTarea($id)
+    {
+       $modeloTareas = new modeloTareas();
+
+       $tareas=$modeloTareas->mostrarInformacionTareas($id);
+       return view('crearTareas')->with('tareas', $tareas[0]);
+
+    }
     public function eliminarTarea($id)
     {
         $modeloAdmin = new modeloAdmin();

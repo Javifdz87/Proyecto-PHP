@@ -7,8 +7,10 @@ use App\Models\modeloTareas;
 use App\Models\modelProvincias;
 use App\Models\modelOperarios;
 
-class TareasController extends Controller {
-    public function controladorTareas(Request $request) {
+class TareasController extends Controller
+{
+    public function controladorTareas(Request $request)
+    {
 
         $nif = $request->input('nif');
         $nombre = $request->input('nombre');
@@ -18,7 +20,6 @@ class TareasController extends Controller {
         $email = $request->input('email');
         $poblacion = $request->input('poblacion');
         $codigoP = $request->input('codigo');
-        $dosValores = substr($codigoP, 0, 2);
         $provincia = $request->input('provincia');
         $estado = $request->input('estado');
         $creacion = $request->input('creacion');
@@ -26,16 +27,16 @@ class TareasController extends Controller {
         $realizacion = $request->input('realizacion');
         $anotaciones = $request->input('anotaciones');
 
-        $errores = $this->gestorErrores($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $dosValores, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones);
+        $errores = $this->gestorErrores($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones);
 
         if (!empty($errores)) {
             // Si hay errores, carga las provincias y operarios nuevamente
             $modelProvincias = new modelProvincias();
             $modelOperarios = new modelOperarios();
-    
+
             $provincias = $modelProvincias->mostrarProvincias();
             $operarios = $modelOperarios->mostrarOperarios();
-    
+
             return view('crearTareas', ['errores' => $errores, 'provincias' => $provincias, 'operarios' => $operarios]);
         }
 
@@ -52,21 +53,23 @@ class TareasController extends Controller {
                 return view('registroOperario', ['errores' => $errores]);
                 break;
         }
-        
+
     }
 
-    public function mostrarFormulario() {
+    public function mostrarFormulario()
+    {
         $modelProvincias = new modelProvincias();
         $modelOperarios = new modelOperarios();
-    
+
         $provincias = $modelProvincias->mostrarProvincias();
         $operarios = $modelOperarios->mostrarOperarios();
 
-    
+
         return view('crearTareas')->with('provincias', $provincias)->with('operarios', $operarios);
     }
 
-    private function gestorErrores($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $dosValores, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones) {
+    private function gestorErrores($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones)
+    {
         $errores = [];
 
         if (empty($nif)) {
@@ -99,8 +102,27 @@ class TareasController extends Controller {
             $errores["poblacion"] = "Error, no puede estar vacío";
         }
 
+        $modelProvincias = new modelProvincias();
+        $codigoProvincia = $modelProvincias->codigoProvincias($provincia);
+
+        $dosValores = substr($codigoP, 0, 2);
+
         if (empty($codigoP)) {
             $errores["codigo"] = "Error, no puede estar vacío";
+        } else{
+            if(!empty($codigoProvincia) && $dosValores !== $codigoProvincia[0]) {
+                $errores["codigo"] = "Error, los dos primeros dígitos del código postal no coinciden con la provincia seleccionada.";
+            }
+        }
+
+
+        $dateParts_creacion = explode("-", $creacion);
+        $ano_creacion = isset($dateParts_creacion[0]) ? $dateParts_creacion[0] : null;
+        $mes_creacion = isset($dateParts_creacion[1]) ? $dateParts_creacion[1] : null;
+        $dia_creacion = isset($dateParts_creacion[2]) ? $dateParts_creacion[2] : null;
+
+        if (!checkdate((int) $mes_creacion, (int) $dia_creacion, (int) $ano_creacion)) {
+            $errores["creacion"] = "Error, la fecha de creación debe contener una fecha válida.";
         }
 
         $fecha_actual = date("d-m-Y");
@@ -110,15 +132,15 @@ class TareasController extends Controller {
         $mes = isset($dateParts[1]) ? $dateParts[1] : null;
         $dia = isset($dateParts[2]) ? $dateParts[2] : null;
 
-        if (!checkdate((int)$mes, (int)$dia, (int)$ano)) {
+        if (!checkdate((int) $mes, (int) $dia, (int) $ano)) {
             $errores["realizacion"] = "Error, debe contener una fecha válida.";
         } elseif (strtotime($realizacion) < strtotime($fecha_actual)) {
             $errores["realizacion"] = "La fecha de realización debe ser posterior a la fecha actual.";
         }
 
-        if ($dosValores !== $codigoP) {
-            $errores["codigo"] = "Error, no coinciden";
-        }
+
+
+
 
         return $errores;
     }

@@ -109,5 +109,19 @@ class modeloTareas {
         }
     }
 
+    public function editarTareaOperario($id, $estado, $anotaciones) {
+        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+        mysqli_set_charset($enlace, "utf8");
+
+        $editarTarea = mysqli_query($enlace, "UPDATE tareas SET Estado = '$estado', Anotaciones_posteriores = '$anotaciones' WHERE id = $id");
+        if($editarTarea) {
+            // Inserción exitosa
+            return "success";
+        } else {
+            // Error en la inserción
+            return "incorrect";
+        }
+    }
+
 }
 ?>

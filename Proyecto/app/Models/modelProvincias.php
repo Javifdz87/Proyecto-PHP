@@ -31,12 +31,12 @@ class modelProvincias
     {
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
-        $rs = mysqli_query($enlace, "SELECT cod as codigo FROM tbl_provincias WHERE nombre= '$opcion';");
+        $rs = mysqli_query($enlace, "SELECT cod as codigoPos FROM tbl_provincias WHERE nombre= '$opcion';");
 
         $codigo = [];
 
         while ($row = $rs->fetch_assoc()) {
-            $codigo[] = $row['codigo'];
+            $codigo[] = $row['codigoPos'];
 
         }
         

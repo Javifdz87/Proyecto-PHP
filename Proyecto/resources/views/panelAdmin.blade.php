@@ -48,7 +48,7 @@
                         <td>{{ $tarea['Operario'] }}</td>
                         <td>{{ $tarea['fecha_realizacion'] }}</td>
                         <td>
-                            <a href=""><button id="bEditar">&#x270F;</button></a>
+                            <a href="{{route('editarTareaAdmin',['id'=>$tarea['id']])}}"><button id="bEditar">&#x270F;</button></a>
                             <a href="{{route('vistaEliminar',['id'=>$tarea['id']])}}"><button id="bEliminar">&#x2716;</button></a>
                             <a href="{{route('infoTareasAdmin',['id'=>$tarea['id']])}}"><button id="bVista">&#x1F441;</button></a>
                         </td>
