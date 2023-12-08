@@ -1,0 +1,66 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    justify-content: space-between; /* Agregado para separar los contenedores */
+}
+
+.general{
+    display: flex; /* Agregado para que los contenedores estén en línea */
+
+}
+.container {
+    width: 48%; /* Ajusta según tus necesidades */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Agregado para incluir el padding en el ancho */
+}
+
+.container2 {
+    width: 48%; /* Ajusta según tus necesidades */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Agregado para incluir el padding en el ancho */
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none; /* Elimina el estilo nativo del sistema operativo */
+    background-color: #fff; /* Fondo blanco */
+}

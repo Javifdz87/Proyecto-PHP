@@ -63,7 +63,8 @@ Route::post('/eliminarTarea/{id}',   [adminController::class, 'eliminarTarea'])-
 Route::get('/eliminarTarea/{id}',  [adminController::class, 'vistaEliminar'])->name('vistaEliminar');
 
 //controlodar editar tareas desde admin
-Route::get('/editarTareaAdmin/{id}',  [adminController::class, 'editarTarea'])->name('editarTareaAdmin');
+Route::get('/editarTareaAdmin/{id}',  [adminController::class, 'mostrarEditarTareas'])->name('editarTareaAdmin');
+Route::post('/editarTareaAdmin/{id}',  [adminController::class, 'editarTareas'])->name('editarTareaAdmin');
 
 //controlodar editar tareas desde operario
 Route::get('/editarTareaOperario/{id}',  [ControladorOperarios::class, 'mostrarEditarTareas'])->name('editarTareaOperario');

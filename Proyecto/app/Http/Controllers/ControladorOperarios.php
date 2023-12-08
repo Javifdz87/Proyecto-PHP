@@ -48,6 +48,7 @@ class controladorOperarios extends Controller
    }
    public function editarTareas(Request $request)
    {
+      
       $id = $request->input('id');
       $estado = $request->input('estado');
       $anotaciones = $request->input('anotaciones');
@@ -62,8 +63,7 @@ class controladorOperarios extends Controller
              break;
 
          case 'incorrect':
-             $errores['insertar'] = "No se puede editar la tarea";
-             return view('registroOperario', ['errores' => $errores]);
+             return view('');
              break;
      }
 

@@ -1,114 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet"  href="css/tareas.css">
-    <title>Crear Tareas</title>
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="../css/editarTareas.css">
+
+
 </head>
+
 <body>
     @extends('navAdmin')
 
-@section('content')
-<div >
-   <form method="POST" action="{{ route('editarTareaAdmin') }}">
-   @csrf
+    @section('content')
+    <div class="general">
+        <div class="container">
+            <div class="form-group">
+                <label for="">ID</label>
+                <input type="text" name="id" disabled value="{{ $tareas['id'] }}">
+            </div>
 
-       <label for="nif" class="required">NIF o CIF:</label>
-       <input type="text" maxlength="9" name="nif" id="nif" disabled value="{{ $tareas['NIF'] }}">
-       @if(isset($errores['nif']))
-            <p class="error">{{ $errores['nif'] }}</p>
-        @endif
+            <div class="form-group">
+                <label for="">NIF </label>
+                <input type="text" disabled value="{{ $tareas['NIF'] }}">
 
-       <label for="nombre" class="required">Nombre:</label>
-       <input type="text" name="nombre" id="nombre" disabled value="{{ $tareas['Nombre'] }}">
-       @if(isset($errores['nombre']))
-            <p class="error">{{ $errores['nombre'] }}</p>
-        @endif
-       <label for="nombre" class="required">Apellidos:</label>
-       <input type="text" name="apellidos" id="apellidos" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($errores['apellidos']))
-            <p class="error">{{ $errores['apellidos'] }}</p>
-        @endif
-       <label for="telefono" class="required">Telefono de contacto:</label>
-       <input type="tel" name="telefono" maxlength="9" id="telefono" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($errores['telefono']))
-            <p class="error">{{ $errores['telefono'] }}</p>
-        @endif
-       <label for="descripcion" class="required">Descripción:</label>
-       <textarea name="descripcion" id="descripcion" cols="30" rows="5" disabled value="{{ $tareas['Apellidos'] }}"></textarea>
-       @if(isset($errores['descripcion']))
-            <p class="error">{{ $errores['descripcion'] }}</p>
-        @endif
+            </div>
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text" disabled value="{{ $tareas['Nombre'] }}">
 
-       <label for="email" class="required">Correo electrónico:</label>
-       <input type="text" name="email" id="email" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($errores['email']))
-            <p class="error">{{ $errores['email'] }}</p>
-        @endif
+            </div>
+            <div class="form-group">
+                <label for="">Apellidos</label>
+                <input type="text" disabled value="{{ $tareas['Apellidos'] }}">
 
-       <label for="poblacion" class="required">Poblacion:</label>
-       <input type="text" name="poblacion" id="poblacion" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($errores['poblacion']))
-            <p class="error">{{ $errores['poblacion'] }}</p>
-        @endif
+            </div>
+            <div class="form-group"><label for="">Teléfono</label>
+                <input type="text" disabled value="{{ $tareas['Telefono'] }}">
 
-       <label for="codigo" class="required">Codigo Postal:</label>
-       <input type="text" maxlength="5" pattern="\d{5}" name="codigo" id="codigo" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($errores['codigo']))
-            <p class="error">{{ $errores['codigo'] }}</p>
-        @endif
+            </div>
+            <div class="form-group">
+                <label for="">Descripción</label>
+                <input type="text" disabled value="{{ $tareas['Descripcion'] }}">
 
-       <label for="opcion" class="required">Provincia:</label>
-       <select name="provincia" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($provincias))
-        @foreach($provincias as $provincia)
-            <option value="{{ $provincia }}">{{ $provincia }}</option>
-        @endforeach
-    @endif
-    
-    </select>
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" disabled value="{{ $tareas['email'] }}">
 
-       <label for="estado">Estado:</label>
-       <select name="estado" id="estado" disabled value="{{ $tareas['Apellidos'] }}">
-           <option value="b">B (Espera)</option>
-           <option value="p">P (Pendiente)</option>
-           <option value="r">R (Realizada)</option>
-           <option value="c">C (Cancelada)</option>
-       </select>
+            </div>
+            <div class="form-group">
+                <label for="">Población</label>
+                <input type="text" disabled value="{{ $tareas['Poblacion'] }}">
 
-       <label for="creacion" class="required">Fecha de creacion de la tarea:</label>
-       <input type="date" name="creacion" id="creacion" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($errores['creacion']))
-            <p class="error">{{ $errores['creacion'] }}</p>
-        @endif
+            </div>
+            <div class="form-group">
+                <label for="">Código Postal</label>
+                <input type="text" disabled value="{{ $tareas['cod_Postal'] }}">
 
-       <label for="opcion">Operario:</label>
-       <select name="operario" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($operarios))
-       @foreach($operarios as $operario)
-        <option value="{{ $operario }}">{{ $operario }}</option>
-        @endforeach
-        @endif
-       </select>
+            </div>
+            <div class="form-group">
+                <label for="">Provincia</label>
+                <input type="text" disabled value="{{ $tareas['Provincia'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Estado</label>
+                <input type="text" name="estado" disabled value="{{ $tareas['Estado'] }}">
 
-       <label for="realizacion" class="required">Fecha de realizacion:</label>
-       <input type="date" name="realizacion" id="realizacion" disabled value="{{ $tareas['Apellidos'] }}">
-       @if(isset($errores['realizacion']))
-            <p class="error">{{ $errores['realizacion'] }}</p>
-        @endif
+            </div>
 
-       <label for="anotaciones">Anotaciones posteriores:</label>
-       <textarea name="anotaciones" id="anotaciones" cols="30" rows="5" disabled value="{{ $tareas['Apellidos'] }}"></textarea>
+            <div class="form-group">
+                <label for="">Fecha Creación de Tarea</label>
+                <input type="text" disabled value="{{ $tareas['Creacion_tarea'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Operario</label>
+                <input type="text" disabled value="{{ $tareas['Operario'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Fecha de Realización</label>
+                <input type="text" disabled value="{{ $tareas['fecha_realizacion'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Anotaciones Posteriores</label>
+                <input type="text" name="anotaciones" disabled value="{{ $tareas['Anotaciones_posteriores'] }}">
+            </div>
 
-       
-       <input type="submit" value="Guardar">
-   </form>
-</div>
-   
-@endsection
-    
+
+
+        </div>
+        <div class="container2">
+            <form method="POST" action="{{ route('editarTareaAdmin',['id'=>$tareas['id']]) }}">
+                @csrf
+                <h1>Editor Administrador</h1>
+                <div class="form-group">
+                <label for="">ID</label>
+                <input type="text" name="id"  value="{{ $tareas['id'] }}">
+            </div>
+
+            <div class="form-group">
+                <label for="">NIF </label>
+                <input type="text"  value="{{ $tareas['NIF'] }}">
+
+            </div>
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text"  value="{{ $tareas['Nombre'] }}">
+
+            </div>
+            <div class="form-group">
+                <label for="">Apellidos</label>
+                <input type="text"  value="{{ $tareas['Apellidos'] }}">
+
+            </div>
+            <div class="form-group"><label for="">Teléfono</label>
+                <input type="text"  value="{{ $tareas['Telefono'] }}">
+
+            </div>
+            <div class="form-group">
+                <label for="">Descripción</label>
+                <input type="text"  value="{{ $tareas['Descripcion'] }}">
+
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text"  value="{{ $tareas['email'] }}">
+
+            </div>
+            <div class="form-group">
+                <label for="">Población</label>
+                <input type="text"  value="{{ $tareas['Poblacion'] }}">
+
+            </div>
+            <div class="form-group">
+                <label for="">Código Postal</label>
+                <input type="text"  value="{{ $tareas['cod_Postal'] }}">
+
+            </div>
+            <div class="form-group">
+                <label for="">Provincia</label>
+                <input type="text"  value="{{ $tareas['Provincia'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Estado</label>
+                <input type="text" name="estado"  value="{{ $tareas['Estado'] }}">
+
+            </div>
+
+            <div class="form-group">
+                <label for="">Fecha Creación de Tarea</label>
+                <input type="text"  value="{{ $tareas['Creacion_tarea'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Operario</label>
+                <input type="text"  value="{{ $tareas['Operario'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Fecha de Realización</label>
+                <input type="text"  value="{{ $tareas['fecha_realizacion'] }}">
+            </div>
+            <div class="form-group">
+                <label for="">Anotaciones Posteriores</label>
+                <input type="text" name="anotaciones"  value="{{ $tareas['Anotaciones_posteriores'] }}">
+            </div>
+                <input type="submit" value="Editar">
+            </form>
+
+        </div>
+    </div>
+
+    @endsection
 </body>
-</html>
 
+</html>
