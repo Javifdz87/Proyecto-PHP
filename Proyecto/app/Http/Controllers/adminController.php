@@ -44,19 +44,19 @@ class adminController extends Controller
 
        //Falta por hacer pasarle los datos a Tareas controller y que verifique la validacion de errores y pasarle al modulo para que actualice la categoria
        
-       //$modeloTareas = new modeloTareas();
+       $modeloTareas = new modeloTareas();
  
-       //$result = $modeloTareas->editarTareaAdmin();
+       $result = $modeloTareas->editarTareaAdmin();
  
-       //switch ($result) {
-         // case 'success':
-           //   return redirect()->route('panelAdmin');
-             // break;
+       switch ($result) {
+          case 'success':
+              return redirect()->route('panelAdmin');
+              break;
  
-          //case 'incorrect':
-            //  return view('');
+          case 'incorrect':
+              return view('');
               //break;
-      //}
+      }
  
     }
 
