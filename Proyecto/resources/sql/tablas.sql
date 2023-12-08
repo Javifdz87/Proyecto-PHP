@@ -1,13 +1,13 @@
 CREATE TABLE Usuario (
-    id INT NOT NULL AUTO_INCREMENT,
-    email VARCHAR(250) NOT NULL PRIMARY KEY,
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(250) NOT NULL,
     usuario VARCHAR(250) NOT NULL,
-    contraseña VARCHAR(250) NOT NULL,
+    contrasena VARCHAR(250) NOT NULL,
     rol BOOLEAN
 );
 
 CREATE TABLE tareas (
-    id INT PRIMARY KEY,
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     NIF VARCHAR(9),
     Nombre VARCHAR(250),
     Apellidos VARCHAR(250),
@@ -21,8 +21,7 @@ CREATE TABLE tareas (
     Creacion_tarea DATE,
     Operario VARCHAR(250),
     fecha_realizacion DATE,
-    Anotaciones_posteriores TEXT,
-    Foreign Key (email) REFERENCES Usuario(email)
+    Anotaciones_posteriores TEXT
 );
 
 SELECT t.id, t.Nombre, t.Apellidos, t.Descripcion, t.email, t.Estado, t.Creacion_tarea, t.Operario, t.fecha_realizacion 

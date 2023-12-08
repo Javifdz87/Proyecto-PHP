@@ -94,13 +94,13 @@ class modeloTareas {
         return $tareas;
     }
 
-    public function insertarTarea($nif, $Nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigo, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones) {
+    public function insertarTarea($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones) {
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
 
-        $insertUsuario = mysqli_query($enlace, "INSERT INTO tareas VALUES ()");
+        $insertTarea = mysqli_query($enlace, "INSERT INTO tareas VALUES (0, '$nif', '$nombre', '$apellidos', $telefono, '$descripcion', '$email', '$poblacion', $codigoP, '$provincia', '$estado', '$creacion', '$operario', '$realizacion', '$anotaciones' )");
 
-        if($insertUsuario) {
+        if($insertTarea) {
             // Inserción exitosa
             return "success";
         } else {
