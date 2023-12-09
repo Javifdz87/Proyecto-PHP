@@ -10,6 +10,8 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
     justify-content: space-between; /* Agregado para separar los contenedores */
+    background: url("../fotos/fondo.jpeg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 .general{
