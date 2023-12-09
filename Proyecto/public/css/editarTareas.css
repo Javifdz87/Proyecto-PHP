@@ -64,3 +64,6 @@ select {
     appearance: none; /* Elimina el estilo nativo del sistema operativo */
     background-color: #fff; /* Fondo blanco */
 }
+p{
+    color: red;
+}

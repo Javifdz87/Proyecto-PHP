@@ -68,7 +68,7 @@ class TareasController extends Controller
         return view('crearTareas')->with('provincias', $provincias)->with('operarios', $operarios);
     }
 
-    private function gestorErrores($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones)
+    public function gestorErrores($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones)
     {
         $errores = [];
 

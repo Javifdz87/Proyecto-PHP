@@ -127,7 +127,7 @@ class modeloTareas {
         }
     }
 
-    public function editarTareaAdmin($id, $estado, $anotaciones) {
+    public function editarTareaAdmin($id, $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones) {
         if ($id === null) {
             // Manejar caso de ID nulo
             return "incorrect";
@@ -135,7 +135,7 @@ class modeloTareas {
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
 
-        $editarTarea = mysqli_query($enlace, "UPDATE tareas SET Estado = '$estado', Anotaciones_posteriores = '$anotaciones' WHERE id = $id");
+        $editarTarea = mysqli_query($enlace, "UPDATE tareas SET id='$id', NIF='$nif', Nombre='$nombre', Apellidos='$apellidos', Telefono='$telefono', Descripcion='$descripcion', email='$email', Poblacion='$poblacion', cod_Postal='$codigoP', Provincia='$provincia', Estado='$estado', Creacion_tarea='$creacion', Operario='$operario', fecha_realizacion='$realizacion', Anotaciones_posteriores='$anotaciones' WHERE id = $id");
         if($editarTarea) {
             // Inserción exitosa
             return "success";
