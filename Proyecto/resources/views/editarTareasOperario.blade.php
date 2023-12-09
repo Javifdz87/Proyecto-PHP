@@ -97,7 +97,7 @@
                 <h1>Editor Operario</h1>
                 <div class="form-group">
                     <label for="">ID</label>
-                    <input type="text" name="id" value="{{ $tareas['id'] }}">
+                    <input type="text" name="id" value="{{ $tareas['id'] }}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="">Estado</label>
@@ -113,6 +113,14 @@
                 <div class="form-group">
                     <label for="">Anotaciones Posteriores</label>
                     <input type="text" name="anotaciones" value="{{ $tareas['Anotaciones_posteriores'] }}">
+                </div>
+
+                <div class="form-group">
+                <label for="">Fecha de Realización</label>
+                <input type="date" name="realizacion" id="realizacion">
+                @if(isset($errores['realizacion']))
+                    <p class="error">{{ $errores['realizacion'] }}</p>
+                @endif
                 </div>
                 <input type="submit" value="Editar">
             </form>

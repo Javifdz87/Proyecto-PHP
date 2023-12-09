@@ -97,7 +97,7 @@
                 <h1>Editor Administrador</h1>
                 <div class="form-group">
                     <label for="">ID</label>
-                    <input type="text" name="id" value="{{ $tareas['id'] }}">
+                    <input type="text" name="id" value="{{ $tareas['id'] }}" readonly>
                 </div>
 
                 <div class="form-group">
@@ -154,7 +154,8 @@
 
                 <div>
                     <label for="codigo" class="required">Codigo Postal:</label>
-                    <input type="text" maxlength="5" pattern="\d{5}" name="codigo" id="codigo" value="{{ $tareas['cod_Postal'] }}">
+                    <input type="text" maxlength="5" pattern="\d{5}" name="codigo" id="codigo"
+                        value="{{ $tareas['cod_Postal'] }}">
                     @if(isset($errores['codigo']))
                     <p class="error">{{ $errores['codigo'] }}</p>
                     @endif
@@ -174,13 +175,8 @@
                 </div>
 
                 <div>
-                    <label for="estado">Estado:</label>
-                    <select name="estado" id="estado" value="{{ $tareas['Estado'] }}">
-                        <option value="b">B (Espera)</option>
-                        <option value="p">P (Pendiente)</option>
-                        <option value="r">R (Realizada)</option>
-                        <option value="c">C (Cancelada)</option>
-                    </select>
+                    <label for="">Estado</label>
+                    <input type="text" name="estado" disabled value="{{ $tareas['Estado'] }}">
                 </div>
 
                 <div>
@@ -204,16 +200,13 @@
                 </div>
 
                 <div>
-                    <label for="realizacion" class="required">Fecha de realizacion:</label>
-                    <input type="date" name="realizacion" id="realizacion" value="{{ $tareas['fecha_realizacion'] }}">
-                    @if(isset($errores['realizacion']))
-                    <p class="error">{{ $errores['realizacion'] }}</p>
-                    @endif
+                    <label for="">Fecha de Realización</label>
+                    <input type="text" disabled value="{{ $tareas['fecha_realizacion'] }}">
                 </div>
 
                 <div>
-                    <label for="anotaciones">Anotaciones posteriores:</label>
-                    <input type="text" name="anotaciones" id="anotaciones" value="{{ $tareas['Anotaciones_posteriores'] }}"></input>
+                    <label for="">Anotaciones Posteriores</label>
+                    <input type="text" name="anotaciones" disabled value="{{ $tareas['Anotaciones_posteriores'] }}">
                 </div>
 
 

@@ -44,6 +44,17 @@ class adminController extends Controller
 
    }
 
+   public function vistaPendientes()
+   {
+      $modeloAdmin = new modeloAdmin();
+
+      $tareas = $modeloAdmin->vistaPendientes();
+
+      return view('vistaPendientes')->with('tareas', $tareas[0]);
+
+   }
+
+
    public function editarTareas(Request $request, $id)
    {
        // Obtén una instancia de TareasController

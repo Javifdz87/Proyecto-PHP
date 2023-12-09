@@ -109,7 +109,7 @@ class modeloTareas {
         }
     }
 
-    public function editarTareaOperario($id, $estado, $anotaciones) {
+    public function editarTareaOperario($id, $estado, $anotaciones, $realizacion) {
         if ($id === null) {
             // Manejar caso de ID nulo
             return "incorrect";
@@ -117,7 +117,7 @@ class modeloTareas {
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
 
-        $editarTarea = mysqli_query($enlace, "UPDATE tareas SET Estado = '$estado', Anotaciones_posteriores = '$anotaciones' WHERE id = $id");
+        $editarTarea = mysqli_query($enlace, "UPDATE tareas SET Estado = '$estado', Anotaciones_posteriores = '$anotaciones', fecha_realizacion='$realizacion'  WHERE id = $id");
         if($editarTarea) {
             // Inserción exitosa
             return "success";
@@ -135,7 +135,7 @@ class modeloTareas {
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
 
-        $editarTarea = mysqli_query($enlace, "UPDATE tareas SET id='$id', NIF='$nif', Nombre='$nombre', Apellidos='$apellidos', Telefono='$telefono', Descripcion='$descripcion', email='$email', Poblacion='$poblacion', cod_Postal='$codigoP', Provincia='$provincia', Estado='$estado', Creacion_tarea='$creacion', Operario='$operario', fecha_realizacion='$realizacion', Anotaciones_posteriores='$anotaciones' WHERE id = $id");
+        $editarTarea = mysqli_query($enlace, "UPDATE tareas SET id=$id, NIF='$nif', Nombre='$nombre', Apellidos='$apellidos', Telefono=$telefono, Descripcion='$descripcion', email='$email', Poblacion='$poblacion', cod_Postal=$codigoP, Provincia='$provincia', Estado='$estado', Creacion_tarea='$creacion', Operario='$operario', fecha_realizacion='$realizacion', Anotaciones_posteriores='$anotaciones' WHERE id = $id");
         if($editarTarea) {
             // Inserción exitosa
             return "success";

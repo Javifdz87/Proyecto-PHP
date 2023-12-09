@@ -38,6 +38,10 @@ Route::get('/vistaOperario', [ControladorOperarios::class, 'vistaTareasGeneral']
 //Ruta panel de Operarios que solo salgan sus tareas que puede manejar
 Route::get('/panelOperario', [ControladorOperarios::class, 'mostrarTareasOperario'])->name('panelOperario');
 
+//Ruta para vista de las tareas pendientes
+Route::get('/listaPendientes', [adminController::class, 'vistaPendientes'])->name('vistaPendientes');
+
+
 //ver informacion desde panel operario y admin
 Route::get('/infoTareasOperario/{id}',   [ControladorOperarios::class, 'controladorinfoTareas'])->name('infoTareasOperario');
 Route::get('/infoTareasAdmin/{id}',   [adminController::class, 'controladorinfoTareas'])->name('infoTareasAdmin');

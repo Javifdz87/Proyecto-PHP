@@ -53,5 +53,33 @@ class modeloAdmin
         return $tareas;
 
     }
+
+    public function vistaPendientes()
+    {
+        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+        mysqli_set_charset($enlace, "utf8");
+
+        
+
+        $rs = mysqli_query($enlace, "SELECT id, Descripcion, Estado, Creacion_tarea, Operario 
+        FROM tareas
+        where Estado= 'P (Pendiente)'");
+
+        $tareas = array();
+        while ($fila = $rs->fetch_assoc()) {
+            $tareas[] = array(
+                "id" => $fila["id"],
+                "Descripcion" => $fila["Descripcion"],
+                "Estado" => $fila["Estado"],
+                "Operario" => $fila["Operario"],
+            );
+        }
+
+        mysqli_close($enlace);
+
+        return $tareas;
+
+    }
 }
+
 ?>
