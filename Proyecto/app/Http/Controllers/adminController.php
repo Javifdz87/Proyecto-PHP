@@ -50,6 +50,12 @@ class adminController extends Controller
 
       $tareas = $modeloAdmin->vistaPendientes();
 
+      switch ($tareas) {
+         case 'vacio':
+             return redirect()->route('panelAdmin');
+             
+     }
+
       return view('vistaPendientes')->with('tareas', $tareas[0]);
 
    }

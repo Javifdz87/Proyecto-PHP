@@ -47,5 +47,21 @@ class LoginController extends Controller {
                 break;
         }
     }
+    public function comprobarUsuario(Request $request) {
+        $email = $request->input('email');
+        $modeloLogin = new ModeloLogin();
+        $usuario = $modeloLogin->obtenerUsuario($email);
+        dd($usuario);
+
+    
+        if ($usuario) {
+            return view('vistaOperario')->with('usuario', $usuario[0]);
+        } else {
+            // Manejar el caso en el que no se encuentra el usuario
+            return view('vistaSinUsuario');
+        }
+    }
+    
+    
 }
 ?>

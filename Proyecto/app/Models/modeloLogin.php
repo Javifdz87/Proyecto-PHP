@@ -38,5 +38,26 @@ class modeloLogin {
 
 
     }
+    public function obtenerUsuario($email) {
+        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+        mysqli_set_charset($enlace, "utf8");
+
+        $rs = mysqli_query($enlace, "SELECT id, email, usuario FROM usuario WHERE email='$email'");
+
+        $usuario = array();
+        while ($fila = $rs->fetch_assoc()) {
+            $usuario[] = array(
+                "id" => $fila["id"],
+                "email" => $fila["Descripcion"],
+                "usuario" => $fila["usuario"],
+            );
+
+        }
+        mysqli_close($enlace);
+
+        return $usuario;
+
+
+    }
 }
 ?>

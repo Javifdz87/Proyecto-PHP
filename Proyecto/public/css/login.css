@@ -1,6 +1,6 @@
 body {
     font-family: "Arial", sans-serif;
-    background-color: #f4f4f4;
+    background-color: #1e1e1e; /* Fondo más oscuro */
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,27 +8,28 @@ body {
     align-items: center;
     height: 100vh;
     background: url("../fotos/fondo.jpeg") no-repeat center center fixed;
-  background-size: cover;
+    background-size: cover;
+    color: #fff; /* Texto blanco en el modo oscuro */
 }
 
 form {
-    background-color: #fff;
+    background-color: #333; /* Color de fondo más oscuro */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sutil sombra blanca */
     max-width: 400px;
     width: 100%;
     text-align: center;
 }
 
 h1 {
-    color: #333;
+    color: #ddd; /* Texto más claro */
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
-    color: #555;
+    color: #bbb; /* Color del texto de la etiqueta en el modo oscuro */
 }
 
 input {
@@ -36,9 +37,11 @@ input {
     padding: 10px;
     margin-bottom: 15px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #555; /* Borde más oscuro */
     border-radius: 4px;
     font-size: 16px;
+    background-color: #444; /* Fondo más oscuro */
+    color: #fff; /* Texto blanco */
 }
 
 input[type="submit"] {
@@ -51,6 +54,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
-p{
-    color: red;
+
+p {
+    color: #ff6b6b; /* Color de texto rojo en el modo oscuro */
 }

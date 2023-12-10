@@ -42,6 +42,7 @@
                         <td>{{ $tareas['Estado'] }}</td>
                         <td>{{ $tareas['Operario'] }}</td>
                         <td>
+
                             <a href="{{route('editarTareaAdmin',['id'=>$tareas['id']])}}"><button id="bEditar">&#x270F;</button></a>
 
                         </td>

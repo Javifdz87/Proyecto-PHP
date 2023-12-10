@@ -18,79 +18,87 @@
     <div class="container">
 
         <div class="form-group">
-            <label for="">ID</label>
-            <input type="text" disabled value="{{ $tareas['id'] }}">
+            <label for="">ID:</label>
+            <label>{{ $tareas['id'] }}</label>
         </div>
-        <div class="form-group">
-            <label for="">NIF </label>
-            <input type="text" disabled value="{{ $tareas['NIF'] }}">
 
-        </div>
         <div class="form-group">
-            <label for="">Nombre</label>
-            <input type="text" disabled value="{{ $tareas['Nombre'] }}">
+            <label for="">NIF:</label>
+            <label>{{ $tareas['NIF'] }}</label>
+        </div>
 
-        </div>
         <div class="form-group">
-            <label for="">Apellidos</label>
-            <input type="text" disabled value="{{ $tareas['Apellidos'] }}">
+            <label for="">Nombre:</label>
+            <label>{{ $tareas['Nombre'] }}</label>
+        </div>
 
+        <div class="form-group">
+            <label for="">Apellidos:</label>
+            <label>{{ $tareas['Apellidos'] }}</label>
         </div>
-        <div class="form-group"><label for="">Teléfono</label>
-        <input type="text" disabled value="{{ $tareas['Telefono'] }}">
 
-        </div>
         <div class="form-group">
-            <label for="">Descripción</label>
-            <input type="text" disabled value="{{ $tareas['Descripcion'] }}">
+            <label for="">Teléfono:</label>
+            <label>{{ $tareas['Telefono'] }}</label>
+        </div>
 
-        </div>
         <div class="form-group">
-            <label for="">Email</label>
-            <input type="text" disabled value="{{ $tareas['email'] }}">
+            <label for="">Descripción:</label>
+            <label>{{ $tareas['Descripcion'] }}</label>
+        </div>
 
-        </div>
         <div class="form-group">
-            <label for="">Población</label>
-            <input type="text" disabled value="{{ $tareas['Poblacion'] }}">
+            <label for="">Email:</label>
+            <label>{{ $tareas['email'] }}</label>
+        </div>
 
-        </div>
         <div class="form-group">
-            <label for="">Código Postal</label>
-            <input type="text" disabled value="{{ $tareas['cod_Postal'] }}">
+            <label for="">Población:</label>
+            <label>{{ $tareas['Poblacion'] }}</label>
+        </div>
 
-        </div>
         <div class="form-group">
-            <label for="">Provincia</label>
-            <input type="text" disabled value="{{ $tareas['Provincia'] }}">
+            <label for="">Código Postal:</label>
+            <label>{{ $tareas['cod_Postal'] }}</label>
         </div>
+
         <div class="form-group">
-            <label for="">Estado</label>
-            <input type="text" disabled value="{{ $tareas['Estado'] }}">
+            <label for="">Provincia:</label>
+            <label>{{ $tareas['Provincia'] }}</label>
         </div>
+
         <div class="form-group">
-            <label for="">Fecha Creación de Tarea</label>
-            <input type="text" disabled value="{{ $tareas['Creacion_tarea'] }}">
+            <label for="">Estado:</label>
+            <label>{{ $tareas['Estado'] }}</label>
         </div>
+
         <div class="form-group">
-            <label for="">Operario</label>
-            <input type="text" disabled value="{{ $tareas['Operario'] }}">
+            <label for="">Fecha Creación de Tarea:</label>
+            <label>{{ $tareas['Creacion_tarea'] }}</label>
         </div>
+
         <div class="form-group">
-            <label for="">Fecha de Realización</label>
-            <input type="text" disabled value="{{ $tareas['fecha_realizacion'] }}">
+            <label for="">Operario:</label>
+            <label>{{ $tareas['Operario'] }}</label>
         </div>
+
         <div class="form-group">
-            <label for="">Anotaciones Posteriores</label>
-            <input type="text" disabled value="{{ $tareas['Anotaciones_posteriores'] }}">
+            <label for="">Fecha de Realización:</label>
+            <label>{{ $tareas['fecha_realizacion'] }}</label>
         </div>
+
+        <div class="form-group">
+            <label for="">Anotaciones Posteriores:</label>
+            <label>{{ $tareas['Anotaciones_posteriores'] }}</label>
+        </div>
+
         <div class="form-group">
             <label for="">Fichero Resumen de Tareas Realizadas</label>
-            <input type="text" disabled value="En mantenimiento">
+            <label>En mantenimiento</label>
         </div>
         <div class="form-group">
             <label for="">Fotos del Trabajo Realizado</label>
-            <input type="text" disabled value="En mantenimiento">
+            <label>En mantenimiento</label>
         </div>
 
     </div>

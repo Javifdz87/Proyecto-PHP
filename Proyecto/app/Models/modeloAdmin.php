@@ -5,23 +5,23 @@ namespace App\Models;
 //en este modelo encontramos, eliminar tareas que lo hace el admin, y ver la tarea que quieres eliminar
 class modeloAdmin
 {
-    
+
     public function eliminarTarea($id_tarea)
     {
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
 
-        
+
         $rs = mysqli_query($enlace, "DELETE FROM tareas WHERE id= $id_tarea;");
 
-    
+
     }
     public function vistaEliminar($id_tarea)
     {
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
 
-        
+
 
         $rs = mysqli_query($enlace, "SELECT id, NIF, Nombre, Apellidos, Telefono, Descripcion, email, Poblacion, cod_Postal, Provincia, Estado, Creacion_tarea, Operario, fecha_realizacion, Anotaciones_posteriores 
         FROM tareas
@@ -59,11 +59,16 @@ class modeloAdmin
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
 
-        
+
 
         $rs = mysqli_query($enlace, "SELECT id, Descripcion, Estado, Creacion_tarea, Operario 
         FROM tareas
         where Estado= 'P (Pendiente)'");
+
+        if (mysqli_num_rows($rs) === 0) {
+            // No hay resultados, devolver array vacío o algún indicador
+            return 'vacio';
+        }
 
         $tareas = array();
         while ($fila = $rs->fetch_assoc()) {
@@ -73,8 +78,8 @@ class modeloAdmin
                 "Estado" => $fila["Estado"],
                 "Operario" => $fila["Operario"],
             );
-        }
 
+        }
         mysqli_close($enlace);
 
         return $tareas;

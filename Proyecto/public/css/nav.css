@@ -20,7 +20,7 @@ a {
 }
 
 nav {
-    background-color: #343a40; /* Un tono oscuro para el fondo del navbar */
+    background-color: #333; /* Un tono oscuro para el fondo del navbar */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra para un toque moderno */
     
 }
@@ -60,14 +60,14 @@ nav {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #3498db; /* Color de fondo */
+    background-color: #043EB9; /* Color de fondo */
     color: #fff; /* Color del texto */
-    border: 2px solid #3498db; /* Borde del botón */
+    border: 2px solid #092e8d; /* Borde del botón */
 }
 
 /* Estilo hover del botón */
 #bNuevaT:hover {
-    background-color: #2980b9; /* Cambia el color de fondo en hover */
+    background-color: #092e8d; /* Cambia el color de fondo en hover */
     color: #fff; /* Cambia el color del texto en hover */
 }
 
@@ -81,14 +81,14 @@ nav {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #3498db; /* Color de fondo */
+    background-color: #3498db00; /* Color de fondo */
     color: #fff; /* Color del texto */
-    border: 2px solid #3498db; /* Borde del botón */
+    border: 2px solid #db3434; /* Borde del botón */
 }
 
 /* Estilo hover del botón */
 #bCerrar:hover {
-    background-color: #2980b9; /* Cambia el color de fondo en hover */
+    background-color: #db3434; /* Cambia el color de fondo en hover */
     color: #fff; /* Cambia el color del texto en hover */
 }
 
@@ -102,13 +102,13 @@ nav {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #3498db; /* Color de fondo */
+    background-color: #043EB9; /* Color de fondo */
     color: #fff; /* Color del texto */
-    border: 2px solid #3498db; /* Borde del botón */
+    border: 2px solid #092e8d; /* Borde del botón */
 }
 
 /* Estilo hover del botón */
 #bRegistrar:hover {
-    background-color: #2980b9; /* Cambia el color de fondo en hover */
+    background-color: #092e8d; /* Cambia el color de fondo en hover */
     color: #fff; /* Cambia el color del texto en hover */
 }

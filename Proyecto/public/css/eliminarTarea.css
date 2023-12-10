@@ -1,61 +1,42 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
+/* Reset some default styles */
+body, h1, h2, p, table {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
     background: url("../fotos/fondo.jpeg") no-repeat center center fixed;
-  background-size: cover;
+    background-size: cover;
+    color: #fff; /* Texto blanco en el modo oscuro */
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
-
-h1, h2 {
-    color: #333;
-}
-
-/* Estilos del formulario */
-form {
-    margin-bottom: 20px;
-}
-
-input[type="submit"], button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover, button:hover {
-    background-color: #45a049;
-}
-
-/* Estilos de la tabla */
 
 .tabla {
     margin-top: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #333; /* Color de fondo más oscuro */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sutil sombra blanca */
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sutil sombra blanca */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sutil sombra blanca */
 }
 
 th, td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid #444; /* Borde más oscuro */
     white-space: nowrap;
 }
 
@@ -65,7 +46,7 @@ th {
 }
 
 tbody tr:hover {
-    background-color: #f5f5f5;
+    background-color: #555; /* Color de fondo más oscuro al pasar el ratón */
 }
 
 .table-header {
@@ -83,4 +64,62 @@ tbody tr:hover {
 
 .operations {
     text-align: center;
+}
+
+.eliminar-tarea-form {
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sutil sombra blanca */
+    text-align: center; /* Center the content */
+    padding: 20px;
+    background-color: #444; /* Color de fondo más oscuro */
+    border-radius: 8px;
+
+
+}
+
+form {
+    border-radius: 8px;
+    display: inline-block; /* Align form to center */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ddd; /* Texto más claro */
+}
+
+p {
+    font-size: 16px;
+    color: #ccc; /* Texto más claro */
+    margin-bottom: 20px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    margin-top: 20px; /* Adjust as needed */
+}
+
+input[type="submit"],
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+}
+
+button {
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-left: 10px; /* Add margin between buttons */
 }
