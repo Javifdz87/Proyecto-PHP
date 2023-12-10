@@ -9,24 +9,30 @@ use App\Models\modeloTareas;
 
 //Panel de Operarios
 
-class controladorOperarios extends Controller
+class ControladorOperarios extends Controller
 {
 
-
    public function vistaTareasGeneral()
-   {
-      $mostrarTareasGeneral = new modeloTareas();
+{
+    session_start();
 
-      $tareas = $mostrarTareasGeneral->mostrarTareasAdmin();
-      return view('vistaOperario')->with('tareas', $tareas);
+    $userEmail = $_SESSION['user_email'];
+    $mostrarTareasGeneral = new modeloTareas();
 
-   }
+    $tareas = $mostrarTareasGeneral->mostrarTareasAdmin();
+
+    return view('vistaOperario')->with(['tareas' => $tareas, 'user_email' => $userEmail]);
+}
+
    public function mostrarTareasOperario()
    {
+      session_start(); // Agrega esta línea
+
+        $userEmail = $_SESSION['user_email'];
       $mostrarTareasOperarios = new modeloTareas();
 
-      $tareas = $mostrarTareasOperarios->mostrarTareasOperarios();
-      return view('panelOperario')->with('tareas', $tareas);
+      $tareas = $mostrarTareasOperarios->mostrarTareasOperarios($userEmail);
+      return view('panelOperario')->with(['tareas' => $tareas, 'user_email' => $userEmail]);
 
    }
 

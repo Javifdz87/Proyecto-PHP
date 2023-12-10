@@ -20,7 +20,8 @@
             <table class="table table-hover">
                 <thead>
                     <tr class="table-header">
-                        <th colspan="18">Lista de Tareas (Operario: Juan de Dios)</th>
+
+                    <th colspan="18">Lista de Tareas (Operario: {{ $user_email }})</th>
                     </tr>
                     <tr>
                         <th>Id</th>

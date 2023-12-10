@@ -29,13 +29,14 @@ class modeloTareas {
         return $tareas;
     }
 
-    public function mostrarTareasOperarios() {
+    public function mostrarTareasOperarios($userEmail) {
+
         $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
         mysqli_set_charset($enlace, "utf8");
         $rs = mysqli_query($enlace, "SELECT t.id, t.Nombre, t.Apellidos, t.Descripcion, t.email, t.Estado, t.Creacion_tarea, t.Operario, t.fecha_realizacion 
         FROM usuario u, tareas t
         WHERE u.usuario=t.operario
-        AND u.usuario='Juan de Dios'
+        AND u.email='$userEmail'
         AND u.rol=0;");
 
         $tareas = array();

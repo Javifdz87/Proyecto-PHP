@@ -12,6 +12,7 @@ class LoginController extends Controller {
     }
 
     public function controladorLogin(Request $request) {
+        session_start();
         $email = $request->input('email');
         $password = $request->input('password');
 
@@ -38,6 +39,7 @@ class LoginController extends Controller {
                 break;
 
             case 'user_success':
+                $_SESSION['user_email'] = $email;
                 return redirect()->route('vistaOperario');
                 break;
 
@@ -47,21 +49,8 @@ class LoginController extends Controller {
                 break;
         }
     }
-    public function comprobarUsuario(Request $request) {
-        $email = $request->input('email');
-        $modeloLogin = new ModeloLogin();
-        $usuario = $modeloLogin->obtenerUsuario($email);
-        dd($usuario);
-
-    
-        if ($usuario) {
-            return view('vistaOperario')->with('usuario', $usuario[0]);
-        } else {
-            // Manejar el caso en el que no se encuentra el usuario
-            return view('vistaSinUsuario');
-        }
-    }
-    
+   
     
 }
 ?>
+ 
