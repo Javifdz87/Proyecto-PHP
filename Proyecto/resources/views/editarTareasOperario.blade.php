@@ -16,124 +16,123 @@
 
     @section('content')
     <div class="general">
-        <div class="container">
-        <div class="form-group">
-                <label for="">ID:</label>
+    <div class="container">
+            <div class="form-group">
+                <h1 id="cabecera">Informacion Específica</h1>
+                <label for="" id="modificacion">>ID:</label>
                 <label>{{ $tareas['id'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">NIF:</label>
+                <label for="" id="modificacion">>NIF:</label>
                 <label>{{ $tareas['NIF'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Nombre:</label>
+                <label for="" id="modificacion">>Nombre:</label>
                 <label>{{ $tareas['Nombre'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Apellidos:</label>
+                <label for="" id="modificacion">>Apellidos:</label>
                 <label>{{ $tareas['Apellidos'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Teléfono:</label>
+                <label for="" id="modificacion">>Teléfono:</label>
                 <label>{{ $tareas['Telefono'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Descripción:</label>
+                <label for="" id="modificacion">>Descripción:</label>
                 <label>{{ $tareas['Descripcion'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Email:</label>
+                <label for="" id="modificacion">>Email:</label>
                 <label>{{ $tareas['email'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Población:</label>
+                <label for="" id="modificacion">>Población:</label>
                 <label>{{ $tareas['Poblacion'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Código Postal:</label>
+                <label for="" id="modificacion">>Código Postal:</label>
                 <label>{{ $tareas['cod_Postal'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Provincia:</label>
+                <label for="" id="modificacion">>Provincia:</label>
                 <label>{{ $tareas['Provincia'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Estado:</label>
+                <label for="" id="modificacion">>Estado:</label>
                 <label>{{ $tareas['Estado'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Fecha Creación de Tarea:</label>
+                <label for="" id="modificacion">>Fecha Creación de Tarea:</label>
                 <label>{{ $tareas['Creacion_tarea'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Operario:</label>
+                <label for="" id="modificacion">>Operario:</label>
                 <label>{{ $tareas['Operario'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Fecha de Realización:</label>
+                <label for="" id="modificacion">>Fecha de Realización:</label>
                 <label>{{ $tareas['fecha_realizacion'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Anotaciones Posteriores:</label>
+                <label for="" id="modificacion">>Anotaciones Posteriores:</label>
                 <label>{{ $tareas['Anotaciones_posteriores'] }}</label>
             </div>
 
 
-
-
         </div>
-        <div class="container2">
-            <form method="POST" action="{{ route('editarTareaOperario',['id'=>$tareas['id']]) }}">
-                @csrf
-                <h1 id="cabecera">Editor Operario</h1>
-                <div class="form-group">
-                    <label for="">ID</label>
-                    <input type="text" name="id" value="{{ $tareas['id'] }}" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="">Estado</label>
-                    <select name="estado" id="estado">
-                        <option value="B (Espera)">B (Espera)</option>
-                        <option value="P (Pendiente)">P (Pendiente)</option>
-                        <option value="R (Realizada)">R (Realizada)</option>
-                        <option value="C (Cancelada)">C (Cancelada)</option>
-                    </select>
+            <div class="container2">
+                <form method="POST" action="{{ route('editarTareaOperario',['id'=>$tareas['id']]) }}">
+                    @csrf
+                    <h1 id="cabecera">Editor Operario</h1>
+                    <div class="form-group">
+                        <label for="">ID</label>
+                        <input type="text" name="id" value="{{ $tareas['id'] }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Estado</label>
+                        <select name="estado" id="estado">
+                            <option value="B (Espera)">B (Espera)</option>
+                            <option value="P (Pendiente)">P (Pendiente)</option>
+                            <option value="R (Realizada)">R (Realizada)</option>
+                            <option value="C (Cancelada)">C (Cancelada)</option>
+                        </select>
 
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="">Anotaciones Posteriores</label>
-                    <input type="text" name="anotaciones" value="{{ $tareas['Anotaciones_posteriores'] }}">
-                </div>
+                    <div class="form-group">
+                        <label for="">Anotaciones Posteriores</label>
+                        <input type="text" name="anotaciones" value="{{ $tareas['Anotaciones_posteriores'] }}">
+                    </div>
 
-                <div class="form-group">
-                <label for="">Fecha de Realización</label>
-                <input type="date" name="realizacion" id="realizacion">
-                @if(isset($errores['realizacion']))
-                    <p class="error">{{ $errores['realizacion'] }}</p>
-                @endif
-                </div>
-                <input type="submit" value="Editar">
-            </form>
+                    <div class="form-group">
+                        <label for="">Fecha de Realización</label>
+                        <input type="date" name="realizacion" id="realizacion">
+                        @if(isset($errores['realizacion']))
+                        <p class="error">{{ $errores['realizacion'] }}</p>
+                        @endif
+                    </div>
+                    <input type="submit" value="Editar">
+                </form>
 
+            </div>
         </div>
-    </div>
 
-    @endsection
+        @endsection
 </body>
 
 </html>

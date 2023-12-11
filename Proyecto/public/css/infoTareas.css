@@ -18,14 +18,17 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sutil sombra blanca */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
 }
 
-form {
-    margin-top: 20px;
-}
+
 
 .form-group {
+    width: calc(33.33% - 20px); /* El 20px es el espacio entre los elementos */
     margin-bottom: 15px;
+    margin-right: 20px; /* Margen derecho entre elementos */
+    box-sizing: border-box;
 }
 
 label {
@@ -42,4 +45,15 @@ input {
     border-radius: 4px;
     background-color: #444; /* Fondo más oscuro */
     color: #fff; /* Texto blanco */
+    margin-top: 5px; /* Espaciado superior para separar de las etiquetas */
+}
+
+/* Ajuste adicional para mejorar la visualización */
+.form-group label {
+    font-weight: bold; /* Hacer las etiquetas más prominentes */
+}
+
+#cabecera {
+    text-align: center;
+    color: #ddd; /* Texto más claro */
 }

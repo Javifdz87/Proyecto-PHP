@@ -16,77 +16,78 @@
     <div class="general">
         <div class="container">
             <div class="form-group">
-                <label for="">ID:</label>
+                <h1 id="cabecera">Informacion Específica</h1>
+                <label for="" id="modificacion">>ID:</label>
                 <label>{{ $tareas['id'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">NIF:</label>
+                <label for="" id="modificacion">>NIF:</label>
                 <label>{{ $tareas['NIF'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Nombre:</label>
+                <label for="" id="modificacion">>Nombre:</label>
                 <label>{{ $tareas['Nombre'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Apellidos:</label>
+                <label for="" id="modificacion">>Apellidos:</label>
                 <label>{{ $tareas['Apellidos'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Teléfono:</label>
+                <label for="" id="modificacion">>Teléfono:</label>
                 <label>{{ $tareas['Telefono'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Descripción:</label>
+                <label for="" id="modificacion">>Descripción:</label>
                 <label>{{ $tareas['Descripcion'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Email:</label>
+                <label for="" id="modificacion">>Email:</label>
                 <label>{{ $tareas['email'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Población:</label>
+                <label for="" id="modificacion">>Población:</label>
                 <label>{{ $tareas['Poblacion'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Código Postal:</label>
+                <label for="" id="modificacion">>Código Postal:</label>
                 <label>{{ $tareas['cod_Postal'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Provincia:</label>
+                <label for="" id="modificacion">>Provincia:</label>
                 <label>{{ $tareas['Provincia'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Estado:</label>
+                <label for="" id="modificacion">>Estado:</label>
                 <label>{{ $tareas['Estado'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Fecha Creación de Tarea:</label>
+                <label for="" id="modificacion">>Fecha Creación de Tarea:</label>
                 <label>{{ $tareas['Creacion_tarea'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Operario:</label>
+                <label for="" id="modificacion">>Operario:</label>
                 <label>{{ $tareas['Operario'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Fecha de Realización:</label>
+                <label for="" id="modificacion">>Fecha de Realización:</label>
                 <label>{{ $tareas['fecha_realizacion'] }}</label>
             </div>
 
             <div class="form-group">
-                <label for="">Anotaciones Posteriores:</label>
+                <label for="" id="modificacion">>Anotaciones Posteriores:</label>
                 <label>{{ $tareas['Anotaciones_posteriores'] }}</label>
             </div>
 

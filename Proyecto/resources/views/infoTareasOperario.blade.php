@@ -15,91 +15,87 @@
     @extends('navOperario')
 
     @section('content')
+    <div>
+        <h1 id="cabecera">Información especifica</h1>
+    </div>
     <div class="container">
 
         <div class="form-group">
             <label for="">ID:</label>
-            <label>{{ $tareas['id'] }}</label>
+            <input value="{{ $tareas['id'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">NIF:</label>
-            <label>{{ $tareas['NIF'] }}</label>
+            <input value="{{ $tareas['NIF'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Nombre:</label>
-            <label>{{ $tareas['Nombre'] }}</label>
+            <input value="{{ $tareas['Nombre'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Apellidos:</label>
-            <label>{{ $tareas['Apellidos'] }}</label>
+            <input value="{{ $tareas['Apellidos'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Teléfono:</label>
-            <label>{{ $tareas['Telefono'] }}</label>
+            <input value="{{ $tareas['Telefono'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Descripción:</label>
-            <label>{{ $tareas['Descripcion'] }}</label>
+            <input value="{{ $tareas['Descripcion'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Email:</label>
-            <label>{{ $tareas['email'] }}</label>
+            <input value="{{ $tareas['email'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Población:</label>
-            <label>{{ $tareas['Poblacion'] }}</label>
+            <input value="{{ $tareas['Poblacion'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Código Postal:</label>
-            <label>{{ $tareas['cod_Postal'] }}</label>
+            <input value="{{ $tareas['cod_Postal'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Provincia:</label>
-            <label>{{ $tareas['Provincia'] }}</label>
+            <input value="{{ $tareas['Provincia'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Estado:</label>
-            <label>{{ $tareas['Estado'] }}</label>
+            <input value="{{ $tareas['Estado'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Fecha Creación de Tarea:</label>
-            <label>{{ $tareas['Creacion_tarea'] }}</label>
+            <input value="{{ $tareas['Creacion_tarea'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Operario:</label>
-            <label>{{ $tareas['Operario'] }}</label>
+            <input value="{{ $tareas['Operario'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Fecha de Realización:</label>
-            <label>{{ $tareas['fecha_realizacion'] }}</label>
+            <input value="{{ $tareas['fecha_realizacion'] }}" Readonly></input>
         </div>
 
         <div class="form-group">
             <label for="">Anotaciones Posteriores:</label>
-            <label>{{ $tareas['Anotaciones_posteriores'] }}</label>
+            <input value="{{ $tareas['Anotaciones_posteriores'] }}" Readonly></input>
         </div>
 
-        <div class="form-group">
-            <label for="">Fichero Resumen de Tareas Realizadas</label>
-            <label>En mantenimiento</label>
-        </div>
-        <div class="form-group">
-            <label for="">Fotos del Trabajo Realizado</label>
-            <label>En mantenimiento</label>
-        </div>
+
 
     </div>
     @endsection

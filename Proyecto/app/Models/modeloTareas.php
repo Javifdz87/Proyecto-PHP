@@ -123,7 +123,7 @@ class modeloTareas {
     
         // Preparar y ejecutar la consulta para editar una tarea por parte de un administrador
         $stmt = mysqli_prepare($this->enlace, "UPDATE tareas SET NIF = ?, Nombre = ?, Apellidos = ?, Telefono = ?, Descripcion = ?, email = ?, Poblacion = ?, cod_Postal = ?, Provincia = ?, Estado = ?, Creacion_tarea = ?, Operario = ?, fecha_realizacion = ?, Anotaciones_posteriores = ? WHERE id = ?");
-        mysqli_stmt_bind_param($stmt, "ssisssisssssssi", $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones, $id);
+        mysqli_stmt_bind_param($stmt, "sssisssissssssi", $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones, $id);
         $editarTarea = mysqli_stmt_execute($stmt);
     
         if ($editarTarea) {
