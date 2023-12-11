@@ -106,11 +106,17 @@ class adminController extends Controller
          case 'success':
             return redirect()->route('panelAdmin');
             break;
+
+         case 'incorrect':
+            return redirect()->route('editarTareaAdmin');
+            break;
       }
    }
 
 
-//funcion para eliminar la tarea
+
+
+   //funcion para eliminar la tarea
    public function eliminarTarea($id)
    {
       $modeloAdmin = new modeloAdmin();

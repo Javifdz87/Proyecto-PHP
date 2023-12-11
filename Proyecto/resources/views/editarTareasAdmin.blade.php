@@ -98,7 +98,7 @@
                 <h1 id="cabecera">Editor Administrador</h1>
                 <div class="form-group">
                     <label for="">ID</label>
-                    <input type="text" name="id" value="{{ $tareas['id'] }}" readonly>
+                    <input type="text" name="id" value="{{ $tareas['id'] }}" maxlength="9" readonly>
                 </div>
 
                 <div class="form-group">

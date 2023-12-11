@@ -8,11 +8,17 @@ class modeloTareas {
     private $enlace;
 
     public function __construct()
-    {
-        // Establecer la conexión a la base de datos
-        $this->enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
-        mysqli_set_charset($this->enlace, "utf8");
+{
+    // Establecer la conexión a la base de datos
+    $this->enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+
+    if (!$this->enlace) {
+        die("Error en la conexión: " . mysqli_connect_error());
     }
+
+    mysqli_set_charset($this->enlace, "utf8");
+}
+
 
     // Método para obtener todas las tareas para administradores
     public function mostrarTareasAdmin() {
@@ -74,7 +80,7 @@ class modeloTareas {
     public function insertarTarea($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones) {
         // Preparar y ejecutar la consulta para insertar una nueva tarea
         $stmt = mysqli_prepare($this->enlace, "INSERT INTO tareas VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, "sssisssisssss", $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones);
+        mysqli_stmt_bind_param($stmt, "isssisssisssss", $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones);
         $insertTarea = mysqli_stmt_execute($stmt);
 
         if($insertTarea) {
@@ -114,22 +120,21 @@ class modeloTareas {
     // Método para editar una tarea por parte de un administrador
     public function editarTareaAdmin($id, $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones) {
         // Verificar si el ID es nulo
-        if ($id === null) {
-            // Manejar caso de ID nulo
-            return "incorrect";
-        }
+       
         // Preparar y ejecutar la consulta para editar una tarea por parte de un administrador
         $stmt = mysqli_prepare($this->enlace, "UPDATE tareas SET NIF = ?, Nombre = ?, Apellidos = ?, Telefono = ?, Descripcion = ?, email = ?, Poblacion = ?, cod_Postal = ?, Provincia = ?, Estado = ?, Creacion_tarea = ?, Operario = ?, fecha_realizacion = ?, Anotaciones_posteriores = ? WHERE id = ?");
         mysqli_stmt_bind_param($stmt, "ssisssisssssssi", $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones, $id);
         $editarTarea = mysqli_stmt_execute($stmt);
 
-        if($editarTarea) {
+        if ($editarTarea) {
             // Edición exitosa
             return "success";
         } else {
             // Error en la edición
+            echo "Error: " . mysqli_error($this->enlace);
             return "incorrect";
         }
+        
 
         mysqli_stmt_close($stmt);
     }
