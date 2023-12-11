@@ -11,24 +11,25 @@ use App\Models\modeloTareas;
 
 class ControladorOperarios extends Controller
 {
-
+//esta funcion devuele una vista general de las tareas
    public function vistaTareasGeneral()
 {
-    session_start();
+    session_start();//inicia la sesion pra recoger los datos del login
 
-    $userEmail = $_SESSION['user_email'];
+    $userEmail = $_SESSION['user_email'];// en este caso se recoge el email de la session
     $mostrarTareasGeneral = new modeloTareas();
 
     $tareas = $mostrarTareasGeneral->mostrarTareasAdmin();
 
-    return view('vistaOperario')->with(['tareas' => $tareas, 'user_email' => $userEmail]);
+    return view('vistaOperario')->with(['tareas' => $tareas, 'user_email' => $userEmail]);//devolver a la vista los datos
 }
 
+//esta funcion devuele una vista de las tareas de ese operario
    public function mostrarTareasOperario()
    {
-      session_start(); // Agrega esta línea
+      session_start(); //inicia la sesion pra recoger los datos del login
 
-        $userEmail = $_SESSION['user_email'];
+        $userEmail = $_SESSION['user_email'];// en este caso se recoge el email de la session
       $mostrarTareasOperarios = new modeloTareas();
 
       $tareas = $mostrarTareasOperarios->mostrarTareasOperarios($userEmail);
@@ -36,6 +37,7 @@ class ControladorOperarios extends Controller
 
    }
 
+   //esta funcion devuele una vista mas detallada de las tareas
    public function controladorinfoTareas($id)
    {
       $modeloTareas = new modeloTareas();
@@ -65,10 +67,8 @@ class ControladorOperarios extends Controller
       $errores = $this->gestorErrores($realizacion);
 
       if (!empty($errores)) {
-         // Si hay errores, maneja la respuesta aquí (puede redirigir a la vista de edición con errores, por ejemplo)
          $modeloTareas = new modeloTareas();
 
-         // Obtén las dependencias y datos necesarios
          $tareas = $modeloTareas->mostrarInformacionTareas($id);
 
          return view('editarTareasOperario', ['errores' => $errores, 'tareas' => $tareas[0]]);
@@ -90,30 +90,36 @@ class ControladorOperarios extends Controller
       }
 
    }
-   public function gestorErrores($realizacion)
-   {
-      $errores = [];
 
 
-      $fecha_actual = date("d-m-Y");
+// Esta función gestiona errores relacionados con la edición de tareas por parte del operario.
+// Comprueba la validez de la fecha de realización y su relación con la fecha actual.
 
-      $dateParts = explode("-", $realizacion);
-      $ano = isset($dateParts[0]) ? $dateParts[0] : null;
-      $mes = isset($dateParts[1]) ? $dateParts[1] : null;
-      $dia = isset($dateParts[2]) ? $dateParts[2] : null;
+public function gestorErrores($realizacion)
+{
+$errores = [];
 
-      if (!checkdate((int) $mes, (int) $dia, (int) $ano)) {
-         $errores["realizacion"] = "Error, debe contener una fecha válida.";
-      } elseif (strtotime($realizacion) < strtotime($fecha_actual)) {
-         $errores["realizacion"] = "La fecha de realización debe ser posterior a la fecha actual.";
-      }
+// Obtener la fecha actual en el formato "d-m-Y"
+$fecha_actual = date("d-m-Y");
 
+// Desglosar la fecha de realización en partes (día, mes, año)
+$dateParts = explode("-", $realizacion);
+$ano = isset($dateParts[0]) ? $dateParts[0] : null;
+$mes = isset($dateParts[1]) ? $dateParts[1] : null;
+$dia = isset($dateParts[2]) ? $dateParts[2] : null;
 
+// Comprobar si la fecha es válida utilizando la función checkdate()
+if (!checkdate((int) $mes, (int) $dia, (int) $ano)) {
+// Agregar mensaje de error si la fecha no es válida
+$errores["realizacion"] = "Error, debe contener una fecha válida.";
+} elseif (strtotime($realizacion) < strtotime($fecha_actual)) {
+// Agregar mensaje de error si la fecha de realización es anterior a la fecha actual
+$errores["realizacion"] = "La fecha de realización debe ser posterior a la fecha actual.";
+}
 
-
-
-      return $errores;
-   }
+// Devolver el array de errores
+return $errores;
+}
 
 
 

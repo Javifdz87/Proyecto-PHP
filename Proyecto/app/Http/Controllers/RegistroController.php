@@ -7,7 +7,7 @@ use App\Models\modeloRegistro;
 
 
 
-//controlador para loguearse
+//controlador para registrarse
 class RegistroController extends Controller {
     public function mostrarRegistro() {
         return view('registroOperario');
@@ -72,9 +72,6 @@ class RegistroController extends Controller {
 
           
         }
-    }
-    public function gestorErrores(Request $request) {
-        
     }
 
 }

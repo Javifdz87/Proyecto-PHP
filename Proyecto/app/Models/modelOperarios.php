@@ -6,23 +6,36 @@ use Illuminate\Http\Request;
 use app\Models\modeloBD;
 use mysqli;
 
-//modelo para la implementacion en la creacion de tareas
+// Modelo para la gestión de operarios
 class modelOperarios
 {
+    // Conexión a la base de datos al instanciar el modelo
+    private $enlace;
+
+    public function __construct()
+    {
+        // Establecer la conexión a la base de datos
+        $this->enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+        mysqli_set_charset($this->enlace, "utf8");
+    }
+
+    // Método para obtener la lista de operarios
     public function mostrarOperarios()
     {
-        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
-        mysqli_set_charset($enlace, "utf8");
-        $rs = mysqli_query($enlace, "SELECT usuario as operario from usuario WHERE rol= 0;");
+        // Preparar y ejecutar la consulta para obtener operarios
+        $stmt = mysqli_prepare($this->enlace, "SELECT usuario as operario FROM usuario WHERE rol = 0");
+        mysqli_stmt_execute($stmt);
+        $rs = mysqli_stmt_get_result($stmt);
 
         $operarios = [];
 
-        while ($row = $rs->fetch_assoc()) {
+        // Recorrer los resultados y almacenar los nombres de operarios en un array
+        while ($row = mysqli_fetch_assoc($rs)) {
             $operarios[] = $row['operario'];
-
         }
-        
-        mysqli_close($enlace);
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($this->enlace);
 
         return $operarios;
     }

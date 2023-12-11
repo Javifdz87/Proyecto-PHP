@@ -2,89 +2,78 @@
 
 namespace App\Models;
 
-//en este modelo encontramos, eliminar tareas que lo hace el admin, y ver la tarea que quieres eliminar
+// Modelo para la gestión de operaciones administrativas en la base de datos
 class modeloAdmin
 {
+    // Conexión a la base de datos al instanciar el modelo
+    private $enlace;
 
+    public function __construct()
+    {
+        // Establecer la conexión a la base de datos
+        $this->enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+        mysqli_set_charset($this->enlace, "utf8");
+    }
+
+    // Método para eliminar una tarea por su ID
     public function eliminarTarea($id_tarea)
     {
-        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
-        mysqli_set_charset($enlace, "utf8");
-
-
-        $rs = mysqli_query($enlace, "DELETE FROM tareas WHERE id= $id_tarea;");
-
-
+        // Preparar y ejecutar la consulta para eliminar la tarea
+        $stmt = mysqli_prepare($this->enlace, "DELETE FROM tareas WHERE id = ?");
+        mysqli_stmt_bind_param($stmt, "i", $id_tarea);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
     }
+
+    // Método para obtener la información de una tarea a eliminar por su ID
     public function vistaEliminar($id_tarea)
     {
-        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
-        mysqli_set_charset($enlace, "utf8");
-
-
-
-        $rs = mysqli_query($enlace, "SELECT id, NIF, Nombre, Apellidos, Telefono, Descripcion, email, Poblacion, cod_Postal, Provincia, Estado, Creacion_tarea, Operario, fecha_realizacion, Anotaciones_posteriores 
-        FROM tareas
-        where id= $id_tarea");
+        // Preparar y ejecutar la consulta para obtener la información de la tarea
+        $stmt = mysqli_prepare($this->enlace, "SELECT id, NIF, Nombre, Apellidos, Telefono, Descripcion, email, Poblacion, cod_Postal, Provincia, Estado, Creacion_tarea, Operario, fecha_realizacion, Anotaciones_posteriores FROM tareas WHERE id = ?");
+        mysqli_stmt_bind_param($stmt, "i", $id_tarea);
+        mysqli_stmt_execute($stmt);
+        $rs = mysqli_stmt_get_result($stmt);
 
         $tareas = array();
-        while ($fila = $rs->fetch_assoc()) {
-            $tareas[] = array(
-                "id" => $fila["id"],
-                "NIF" => $fila["NIF"],
-                "Nombre" => $fila["Nombre"],
-                "Apellidos" => $fila["Apellidos"],
-                "Telefono" => $fila["Telefono"],
-                "Descripcion" => $fila["Descripcion"],
-                "email" => $fila["email"],
-                "Poblacion" => $fila["Poblacion"],
-                "cod_Postal" => $fila["cod_Postal"],
-                "Provincia" => $fila["Provincia"],
-                "Estado" => $fila["Estado"],
-                "Creacion_tarea" => $fila["Creacion_tarea"],
-                "Operario" => $fila["Operario"],
-                "fecha_realizacion" => $fila["fecha_realizacion"],
-                "Anotaciones_posteriores" => $fila["Anotaciones_posteriores"],
-            );
+        // Recorrer los resultados y almacenarlos en un array asociativo
+        while ($fila = mysqli_fetch_assoc($rs)) {
+            $tareas[] = $fila;
         }
 
-        mysqli_close($enlace);
+        mysqli_stmt_close($stmt);
 
         return $tareas;
-
     }
 
+    // Método para obtener las tareas pendientes
     public function vistaPendientes()
     {
-        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
-        mysqli_set_charset($enlace, "utf8");
+        // Preparar y ejecutar la consulta para obtener las tareas pendientes
+        $stmt = mysqli_prepare($this->enlace, "SELECT id, Descripcion, Estado, Creacion_tarea, Operario FROM tareas WHERE Estado = 'P (Pendiente)'");
+        mysqli_stmt_execute($stmt);
+        $rs = mysqli_stmt_get_result($stmt);
 
-
-
-        $rs = mysqli_query($enlace, "SELECT id, Descripcion, Estado, Creacion_tarea, Operario 
-        FROM tareas
-        where Estado= 'P (Pendiente)'");
-
+        // Verificar si hay resultados
         if (mysqli_num_rows($rs) === 0) {
-            // No hay resultados, devolver array vacío o algún indicador
+            // No hay resultados, devolver 'vacio' o algún indicador
             return 'vacio';
         }
 
         $tareas = array();
-        while ($fila = $rs->fetch_assoc()) {
-            $tareas[] = array(
-                "id" => $fila["id"],
-                "Descripcion" => $fila["Descripcion"],
-                "Estado" => $fila["Estado"],
-                "Operario" => $fila["Operario"],
-            );
-
+        // Recorrer los resultados y almacenarlos en un array asociativo
+        while ($fila = mysqli_fetch_assoc($rs)) {
+            $tareas[] = $fila;
         }
-        mysqli_close($enlace);
+
+        mysqli_stmt_close($stmt);
 
         return $tareas;
+    }
 
+    // Cierre de la conexión a la base de datos al destruir la instancia del modelo
+    public function __destruct()
+    {
+        mysqli_close($this->enlace);
     }
 }
-
 ?>

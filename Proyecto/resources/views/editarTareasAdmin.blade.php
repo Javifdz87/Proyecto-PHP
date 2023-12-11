@@ -95,7 +95,7 @@
         <div class="container2">
             <form method="POST" action="{{ route('editarTareaAdmin',['id'=>$tareas['id']]) }}">
                 @csrf
-                <h1>Editor Administrador</h1>
+                <h1 id="cabecera">Editor Administrador</h1>
                 <div class="form-group">
                     <label for="">ID</label>
                     <input type="text" name="id" value="{{ $tareas['id'] }}" readonly>

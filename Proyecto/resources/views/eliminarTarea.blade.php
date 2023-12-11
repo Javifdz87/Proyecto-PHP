@@ -54,9 +54,11 @@
                     <p>¿Estás seguro de que quieres eliminar esta tarea?</p>
                     <div class="form-buttons">
                         <input type="submit" value="Sí">
-                        <a href="{{ route('panelAdmin') }}"><button>No</button></a>
+                        
                     </div>
                 </form>
+                <a href="{{ route('panelAdmin') }}">
+                    <button>No</button></a>
             </div>
         </div>
     @endsection

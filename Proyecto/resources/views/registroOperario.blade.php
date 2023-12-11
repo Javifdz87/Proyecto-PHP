@@ -16,7 +16,7 @@
   <div class="container">
     <form method="POST" action="{{ route('registroOperario') }}">
       @csrf
-      <h1>Registrar Operario</h1>
+      <h1 id="cabecera">Registrar Operario</h1>
 
       <label for="usuario">Operario</label>
       <input type="text" name="usuario" placeholder="Usuario">
