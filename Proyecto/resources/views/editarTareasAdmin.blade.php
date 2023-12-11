@@ -177,7 +177,7 @@
 
                 <div>
                     <label for="">Estado</label>
-                    <input type="text" name="estado" disabled value="{{ $tareas['Estado'] }}">
+                    <input type="text" name="estado" value="{{ $tareas['Estado'] }}" readonly>
                 </div>
 
                 <div>
@@ -202,12 +202,12 @@
 
                 <div>
                     <label for="">Fecha de Realización</label>
-                    <input type="text" disabled value="{{ $tareas['fecha_realizacion'] }}">
+                    <input type="text" name="realizacion" value="{{ $tareas['fecha_realizacion'] }}" readonly>
                 </div>
 
                 <div>
                     <label for="">Anotaciones Posteriores</label>
-                    <input type="text" name="anotaciones" disabled value="{{ $tareas['Anotaciones_posteriores'] }}">
+                    <input type="text" name="anotaciones" value="{{ $tareas['Anotaciones_posteriores'] }}" readonly>
                 </div>
 
 

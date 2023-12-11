@@ -38,8 +38,12 @@ class TareasController extends Controller
             $provincias = $modelProvincias->mostrarProvincias();
             $operarios = $modelOperarios->mostrarOperarios();
 
-            return view('crearTareas', ['errores' => $errores, 'provincias' => $provincias, 'operarios' => $operarios]);
-        }
+            return view('crearTareas', [
+                'errores' => $errores,
+                'provincias' => $provincias,
+                'operarios' => $operarios,
+                'datosAnteriores' => $request->all(), // Guarda todos los datos del formulario para mostrarlos nuevamente
+            ]);        }
 
         // Si no hay errores, insertar la tarea en la base de datos
         $modeloTareas = new modeloTareas();

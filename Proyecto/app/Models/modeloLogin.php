@@ -75,10 +75,5 @@ class modeloLogin {
         return $usuario;
     }
 
-    // Cierre de la conexión a la base de datos al destruir la instancia del modelo
-    public function __destruct()
-    {
-        mysqli_close($this->enlace);
-    }
 }
 ?>

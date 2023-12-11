@@ -120,29 +120,27 @@ class modeloTareas {
     // Método para editar una tarea por parte de un administrador
     public function editarTareaAdmin($id, $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones) {
         // Verificar si el ID es nulo
-       
+    
         // Preparar y ejecutar la consulta para editar una tarea por parte de un administrador
         $stmt = mysqli_prepare($this->enlace, "UPDATE tareas SET NIF = ?, Nombre = ?, Apellidos = ?, Telefono = ?, Descripcion = ?, email = ?, Poblacion = ?, cod_Postal = ?, Provincia = ?, Estado = ?, Creacion_tarea = ?, Operario = ?, fecha_realizacion = ?, Anotaciones_posteriores = ? WHERE id = ?");
         mysqli_stmt_bind_param($stmt, "ssisssisssssssi", $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones, $id);
         $editarTarea = mysqli_stmt_execute($stmt);
-
+    
         if ($editarTarea) {
             // Edición exitosa
+            mysqli_stmt_close($stmt); // Cerrar el statement después de usarlo
+            mysqli_close($this->enlace); // Cerrar la conexión a la base de datos
             return "success";
         } else {
             // Error en la edición
             echo "Error: " . mysqli_error($this->enlace);
+            mysqli_stmt_close($stmt); // Cerrar el statement en caso de error
+            mysqli_close($this->enlace); // Cerrar la conexión a la base de datos en caso de error
             return "incorrect";
         }
-        
-
-        mysqli_stmt_close($stmt);
     }
+    
 
-    // Cierre de la conexión a la base de datos al destruir la instancia del modelo
-    public function __destruct()
-    {
-        mysqli_close($this->enlace);
-    }
+   
 }
 ?>

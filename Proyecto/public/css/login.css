@@ -10,29 +10,28 @@ body {
     background: url("../fotos/fondo.jpeg") no-repeat center center fixed;
     background-size: cover;
     color: #fff; /* Texto blanco en el modo oscuro */
-}
-
-form {
+  }
+  
+  form {
     background-color: #333; /* Color de fondo más oscuro */
     padding: 20px;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sutil sombra blanca */
     max-width: 400px;
     width: 100%;
     text-align: center;
-}
-
-h1 {
+  }
+  
+  h1 {
     color: #ddd; /* Texto más claro */
-}
-
-label {
+  }
+  
+  label {
     display: block;
     margin: 10px 0 5px;
     color: #bbb; /* Color del texto de la etiqueta en el modo oscuro */
-}
-
-input {
+  }
+  
+  input {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -42,19 +41,29 @@ input {
     font-size: 16px;
     background-color: #444; /* Fondo más oscuro */
     color: #fff; /* Texto blanco */
-}
-
-input[type="submit"] {
+  }
+  
+  input[type="submit"] {
     background-color: #4caf50;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover {
+  }
+  
+  input[type="submit"]:hover {
     background-color: #45a049;
-}
-
-p {
+  }
+  
+  p {
     color: #ff6b6b; /* Color de texto rojo en el modo oscuro */
-}
+  }
+  
+  img{
+  width: 400px;
+  }
+  div{
+    display: flex;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.559); /* Agregamos una sombra al div */
+    border: 1px solid rgb(255, 255, 255);
+  
+  }
