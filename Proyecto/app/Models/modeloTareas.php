@@ -40,22 +40,35 @@ class modeloTareas {
 
     // Método para obtener las tareas de un operario específico
     public function mostrarTareasOperarios($userEmail) {
-        // Preparar y ejecutar la consulta para obtener las tareas de un operario
-        $stmt = mysqli_prepare($this->enlace, "SELECT t.id, t.Nombre, t.Apellidos, t.Descripcion, t.email, t.Estado, t.Creacion_tarea, t.Operario, t.fecha_realizacion FROM usuario u, tareas t WHERE u.usuario = t.operario AND u.email = ? AND u.rol = 0");
-        mysqli_stmt_bind_param($stmt, "s", $userEmail);
-        mysqli_stmt_execute($stmt);
-        $rs = mysqli_stmt_get_result($stmt);
+
+        $enlace = mysqli_connect("localhost", "root", "", "proyecto_php");
+        mysqli_set_charset($enlace, "utf8");
+        $rs = mysqli_query($enlace, "SELECT t.id, t.Nombre, t.Apellidos, t.Descripcion, t.email, t.Estado, t.Creacion_tarea, t.Operario, t.fecha_realizacion 
+        FROM usuario u, tareas t
+        WHERE u.usuario=t.operario
+        AND u.email='$userEmail'
+        AND u.rol=0;");
 
         $tareas = array();
-        // Recorrer los resultados y almacenarlos en un array asociativo
-        while($fila = mysqli_fetch_assoc($rs)) {
-            $tareas[] = $fila;
+        while($fila = $rs->fetch_assoc()) {
+            $tareas[] = array(
+                "id" => $fila["id"],
+                "Nombre" => $fila["Nombre"],
+                "Apellidos" => $fila["Apellidos"],
+                "Descripcion" => $fila["Descripcion"],
+                "email" => $fila["email"],
+                "Estado" => $fila["Estado"],
+                "Creacion_tarea" => $fila["Creacion_tarea"],
+                "Operario" => $fila["Operario"],
+                "fecha_realizacion" => $fila["fecha_realizacion"],
+            );
         }
 
-        mysqli_stmt_close($stmt);
+        mysqli_close($enlace);
 
         return $tareas;
     }
+
 
     // Método para obtener la información de una tarea específica
     public function mostrarInformacionTareas($id_tarea) {
@@ -80,7 +93,7 @@ class modeloTareas {
     public function insertarTarea($nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones) {
         // Preparar y ejecutar la consulta para insertar una nueva tarea
         $stmt = mysqli_prepare($this->enlace, "INSERT INTO tareas VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, "isssisssisssss", $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones);
+        mysqli_stmt_bind_param($stmt, "issssssissssss", $nif, $nombre, $apellidos, $telefono, $descripcion, $email, $poblacion, $codigoP, $provincia, $estado, $creacion, $operario, $realizacion, $anotaciones);
         $insertTarea = mysqli_stmt_execute($stmt);
 
         if($insertTarea) {

@@ -55,7 +55,7 @@ class adminController extends Controller
             return redirect()->route('panelAdmin');
       }
 
-      return view('vistaPendientes')->with('tareas', $tareas[0]);
+      return view('vistaPendientes')->with('tareas', $tareas);
    }
 
    //funcion para recoger los datos del formulario y actualizarlo

@@ -121,7 +121,7 @@
 
                     <div class="form-group">
                         <label for="">Fecha de Realización</label>
-                        <input type="date" name="realizacion" id="realizacion">
+                        <input type="date" name="realizacion" id="realizacion" >
                         @if(isset($errores['realizacion']))
                         <p class="error">{{ $errores['realizacion'] }}</p>
                         @endif

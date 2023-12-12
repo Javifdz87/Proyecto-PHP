@@ -24,32 +24,32 @@
                     </tr>
                     <tr>
                         <th>Id</th>
-                        
-                        
                         <th>Descripción</th>
-                        
                         <th>Estado</th>
-                        
                         <th>Operario</th>
-                        
                         <th>Operaciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr> 
-                        <td>{{ $tareas['id'] }}</td>         
-                        <td>{{ $tareas['Descripcion'] }}</td>
-                        <td>{{ $tareas['Estado'] }}</td>
-                        <td>{{ $tareas['Operario'] }}</td>
-                        <td>
-
-                            <a href="{{route('editarTareaAdmin',['id'=>$tareas['id']])}}"><button id="bEditar">&#x270F;</button></a>
-
-                        </td>
-                    </tr>
+                    @if(count($tareas) > 0)
+                        @foreach($tareas as $tarea)
+                            <tr>
+                                <td>{{ $tarea['id'] }}</td>
+                                <td>{{ $tarea['Descripcion'] }}</td>
+                                <td>{{ $tarea['Estado'] }}</td>
+                                <td>{{ $tarea['Operario'] }}</td>
+                                <td>
+                                    <a href="{{route('editarTareaAdmin',['id'=>$tarea['id']])}}">
+                                        <button id="bEditar">&#x270F;</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
                         <tr>
-                            <td colspan="11">No hay tareas disponibles.</td>
+                            <td colspan="5">No hay tareas disponibles.</td>
                         </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
