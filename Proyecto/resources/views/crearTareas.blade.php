@@ -40,7 +40,7 @@
                 <p class="error">{{ $errores['apellidos'] }}</p>
                 @endif
 
-                <label for="telefono" class="required">Telefono de contacto:</label>
+                <label for="telefono" class="required">Teléfono de contacto:</label>
                 <input type="tel" name="telefono" maxlength="9" id="telefono" value="{{ isset($datosAnteriores['telefono']) ? $datosAnteriores['telefono'] : '' }}">
                 @if(isset($errores['telefono']))
                 <p class="error">{{ $errores['telefono'] }}</p>
@@ -63,13 +63,13 @@
                 <p class="error">{{ $errores['email'] }}</p>
                 @endif
 
-                <label for="poblacion" class="required">Poblacion:</label>
+                <label for="poblacion" class="required">Población:</label>
                 <input type="text" name="poblacion" id="poblacion" value="{{ isset($datosAnteriores['poblacion']) ? $datosAnteriores['poblacion'] : '' }}">
                 @if(isset($errores['poblacion']))
                 <p class="error">{{ $errores['poblacion'] }}</p>
                 @endif
 
-                <label for="codigo" class="required">Codigo Postal:</label>
+                <label for="codigo" class="required">Código Postal:</label>
                 <input type="text" maxlength="5" pattern="\d{5}" name="codigo" id="codigo" value="{{ isset($datosAnteriores['codigo']) ? $datosAnteriores['codigo'] : '' }}">
                 @if(isset($errores['codigo']))
                 <p class="error">{{ $errores['codigo'] }}</p>
@@ -101,7 +101,7 @@
                         $datosAnteriores['estado']=='C (Cancelada)' ? 'selected' : '' }}>C (Cancelada)</option>
                 </select>   
 
-                <label for="creacion" class="required">Fecha de creacion de la tarea:</label>
+                <label for="creacion" class="required">Fecha de creación de la tarea:</label>
                 <input type="date" name="creacion" id="creacion"
                     value="{{ isset($datosAnteriores['creacion']) ? $datosAnteriores['creacion'] : '' }}">
                 @if(isset($errores['creacion']))
@@ -122,7 +122,7 @@
                     @endif
                 </select>
 
-                <label for="realizacion" class="required">Fecha de realizacion:</label>
+                <label for="realizacion" class="required">Fecha de realización:</label>
                 <input type="date" name="realizacion" id="realizacion" value="{{ isset($datosAnteriores['realizacion']) ? $datosAnteriores['realizacion'] : '' }}">
                 @if(isset($errores['realizacion']))
                 <p class="error">{{ $errores['realizacion'] }}</p>

@@ -104,7 +104,7 @@
 
                 <div class="form-group">
                     <label for="">NIF: </label>
-                    <input type="text" name="nif" value="{{ $tareas['NIF'] }}">
+                    <input type="text" name="nif" maxlength="9" value="{{ $tareas['NIF'] }}">
                     @if(isset($errores['nif']))
                     <p class="error">{{ $errores['nif'] }}</p>
                     @endif
@@ -125,7 +125,7 @@
                 </div>
 
                 <div>
-                    <label for="telefono" class="required">Telefono de contacto:</label>
+                    <label for="telefono" class="required">Teléfono de contacto:</label>
                     <input type="tel" name="telefono" maxlength="9" id="telefono" value="{{ $tareas['Telefono'] }}">
                     @if(isset($errores['telefono']))
                     <p class="error">{{ $errores['telefono'] }}</p>
@@ -147,7 +147,7 @@
                 </div>
 
                 <div>
-                    <label for="poblacion" class="required">Poblacion:</label>
+                    <label for="poblacion" class="required">Población:</label>
                     <input type="text" name="poblacion" id="poblacion" value="{{ $tareas['Poblacion'] }}">
                     @if(isset($errores['poblacion']))
                     <p class="error">{{ $errores['poblacion'] }}</p>
@@ -155,7 +155,7 @@
                 </div>
 
                 <div>
-                    <label for="codigo" class="required">Codigo Postal:</label>
+                    <label for="codigo" class="required">Código Postal:</label>
                     <input type="text" maxlength="5" pattern="\d{5}" name="codigo" id="codigo"
                         value="{{ $tareas['cod_Postal'] }}">
                     @if(isset($errores['codigo']))
@@ -182,7 +182,7 @@
                 </div>
 
                 <div>
-                    <label for="creacion" class="required">Fecha de creacion de la tarea:</label>
+                    <label for="creacion" class="required">Fecha de creación de la tarea:</label>
                     <input type="date" name="creacion" id="creacion" value="{{ $tareas['Creacion_tarea'] }}">
                     @if(isset($errores['creacion']))
                     <p class="error">{{ $errores['creacion'] }}</p>
